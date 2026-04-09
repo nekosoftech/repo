@@ -1,128 +1,367 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
-
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NekosofTech's Repo</title>
-    <!-- Metadata -->
-    <link rel="icon" type="image/png" href="CydiaIcon@3x.png">
-    <link rel="apple-touch-icon" type="image/png" href="CydiaIcon@3x.png">
-    <link rel="stylesheet" type="text/css" href="css/style.min.css">
-    <meta name="title" content="NekosofTech's Repo">
-    <meta name="description"
-        content="All tweaks from nekosoftech. Add this repository to your favorite package manager, among Cydia, Zebra, Installer 5 or Sileo.">
-    <!-- Safari 15 -->
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nekosoftech.github.io/repo">
-    <meta property="og:title" content="NekosofTech's Repo">
-    <meta property="og:description"
-        content="All tweaks from nekosoftech. Add this repository to your favorite package manager, among Cydia, Zebra, Installer 5 or Sileo.">
-    <meta property="og:image" content="https://nekosoftech.github.io/repo/CydiaIcon@3x.png">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:creator" content="@nekosoftech">
-    <meta name="twitter:url" content="https://nekosoftech.github.io/repo">
-    <meta name="twitter:title" content="NekosofTech's Repo">
-    <meta name="twitter:description"
-        content="All tweaks from nekosoftech. Add this repository to your favorite package manager, among Cydia, Zebra, Installer 5 or Sileo.">
-    <meta name="twitter:image" content="https://nekosoftech.github.io/repo/CydiaIcon@3x.png">
-    <meta name="twitter:image:alt" content="NekosofTech's Repo image">
-    <!-- JavaScript -->
-    <script defer src="https://kit.fontawesome.com/ff86e91158.js" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
+    <meta name="description" content="All tweaks from NekosofTech. Add this repository to your favorite package manager.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f111a;
+            --surface-color: rgba(255, 255, 255, 0.03);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --primary-color: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px 20px;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 30px;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--primary-glow);
+            border: 1px solid var(--surface-border);
+            padding: 10px;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(white, transparent);
+            opacity: 0.1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-sileo { background: linear-gradient(135deg, #1c888e, #1c888e); box-shadow: 0 4px 15px rgba(28, 136, 142, 0.4); }
+        .btn-zebra { background: linear-gradient(135deg, #1a1a1a, #333333); box-shadow: 0 4px 15px rgba(26, 26, 26, 0.4); }
+        .btn-cydia { background: linear-gradient(135deg, #8B5F4D, #6b4738); box-shadow: 0 4px 15px rgba(139, 95, 77, 0.4); }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--surface-border), transparent);
+        }
+
+        .packages-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .package-card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .package-card:hover {
+            transform: scale(1.02);
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .pkg-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pkg-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .pkg-details h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .pkg-details p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .pkg-version {
+            font-size: 0.85rem;
+            color: #a5b4fc;
+            background: rgba(165, 180, 252, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #a5b4fc;
+            text-decoration: none;
+        }
+
+        .loading-text {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fallback icon colors */
+        .icon-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .icon-purple { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+        .icon-emerald { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .icon-rose { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+        .icon-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    </style>
 </head>
-
 <body>
-    <button class="top" aria-label="Scroll to Top"><em class="fas fa-chevron-up"></em></button>
 
-    <h1>NekosofTech's Repository</h1>
-    <em id="alert">Open this page on your iOS/iPadOS device to add this repo to your package manager.</em>
-    <section id="add-repo">
-        <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://nekosoftech.github.io/repo">
-            <img src="https://cydia.saurik.com/icon@2x/cydia7.png" alt="Cydia icon" />
-            <p class="link">Add to Cydia</p>
-        </a>
-        <a href="zbra://sources/add/https://nekosoftech.github.io/repo">
-            <img src="https://getzbra.com/assets/zeeb.svg" alt="Zebra icon" />
-            <p class="link">Add to Zebra</p>
-        </a>
-        <a href="installer://add/https://nekosoftech.github.io/repo">
-            <img src="https://apptapp.me/repo/images/Installer.png" alt="Installer icon" />
-            <p class="link">Add to Installer</p>
-        </a>
-        <a href="sileo://source/https://nekosoftech.github.io/repo">
-            <img src="https://getsileo.app/img/icon.png" alt="Sileo icon" />
-            <p class="link">Add to Sileo</p>
-        </a>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <button type="button" id="collapsible">
-            _WHOAMI
-            <img src="https://github.com/nekosoftech/nekosoftech/blob/main/Me.png?raw=true" alt="NekosofTech's face" />
-        </button>
-        <div class="content">
-            <div id="markdown"></div>
-            <hr>
-            <a href="https://github.com/nekosoftech/nekosoftech/blob/main/README.md" target="_blank"
-                rel="noopener noreferrer">
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/a8/34/3c/a8343c15-9a86-ce5f-6218-0b0c41af08f4/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/217x0w.png"
-                    alt="GitHub icon" />
-                See this on GitHub
-            </a>
+    <div class="container">
+        <div class="header">
+            <div class="logo-wrapper">
+                <img src="CydiaIcon.png" alt="NekosofTech Logo" class="logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23333\'/></svg>'">
+            </div>
+            <h1>NekosofTech</h1>
+            <p class="subtitle">Experience premium tweaks designed to enhance and customize your iOS device to its fullest potential.</p>
         </div>
-        <a href="https://twitter.com/nekosoftech" target="_blank" rel="noopener noreferrer">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/33/eb/b3/33ebb37c-f1f1-8e40-8d88-9dc483fb4a2e/ProductionAppIcon-1x_U007emarketing-0-7-0-0-0-85-220.png/217x0w.png"
-                alt="Twitter icon" />
-            <p class="link">Twitter</p>
-        </a>
-        <a href="https://github.com/nekosoftech" target="_blank" rel="noopener noreferrer">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/a8/34/3c/a8343c15-9a86-ce5f-6218-0b0c41af08f4/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/217x0w.png"
-                alt="GitHub icon" />
-            <p class="link">Github</p>
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple115/v4/27/6d/03/276d03c0-7886-4f78-da37-844b679d6c01/AppIcon-1x_U007emarketing-0-7-0-85-220.png/217x0w.png"
-                alt="Reddit icon" />
-            <p class="link">Reddit</p>
-        </a>
-        <a href="https://discord.com/users/692312923661664256/" target="_blank" rel="noopener noreferrer">
-            <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple125/v4/5e/be/72/5ebe7274-4a54-36e5-a229-854d142dbbfe/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/217x0w.png"
-                alt="Discord icon" />
-            <p class="link">Discord (NekosofTech#0475)</p>
-        </a>
-        <a href="mailto:#">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/c7/40/e5/c740e5f0-2a62-4fa7-dc1b-66ea3d519545/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-10.png/217x0w.png"
-                alt="Apple Mail icon" />
-            <p class="link">Mail</p>
-        </a>
-        <a href="https://www.paypal.me/redenticdev" target="_blank" rel="noopener noreferrer">
-            <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/66/37/0d/66370de2-4c2c-43d2-1f2b-dd4b0c5e563a/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/217x0w.png"
-                alt="Paypal icon" />
-            <p class="link">Paypal</p>
-        </a>
-    </section>
-    <section id="packages">
-        <h2>Packages</h2>
-    </section>
-    <section id="devices">
-        <h2>Devices</h2>
-        <table>
-            <caption>Only devices used/usable for development are listed.</caption>
-            <th scope="colgroup"></th>
-            <tbody id="devices-list"></tbody>
-        </table>
-    </section>
-    <footer></footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="js/script.min.js"></script>
-    <script src="js/scrollToTop.min.js"></script>
+        <div class="btn-grid">
+            <a href="sileo://source/https://nekosoftech.github.io/repo" class="btn btn-sileo">Add to Sileo</a>
+            <a href="zbra://sources/add/https://nekosoftech.github.io/repo" class="btn btn-zebra">Add to Zebra</a>
+            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://nekosoftech.github.io/repo" class="btn btn-cydia">Add to Cydia</a>
+        </div>
+
+        <h2 class="section-title">Packages</h2>
+        
+        <div class="packages-list" id="packages-container">
+            <div class="loading-text" id="loading-msg">Fetching tweaks...</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 NekosofTech. Follow me on <a href="https://github.com/nekosoftech" target="_blank">GitHub</a>.</p>
+    </footer>
+
+    <script>
+        const repoUrl = window.location.href.replace('index.html', '').replace(/\/$/, "");
+        
+        async function fetchPackages() {
+            try {
+                // Fetch the Packages file
+                const response = await fetch(`${repoUrl}/Packages`);
+                if (!response.ok) throw new Error('Packages file not found or inaccessible.');
+                
+                const text = await response.text();
+                parseAndRenderPackages(text);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('loading-msg').innerHTML = 
+                    'Repository active. Add to your package manager to view all tweaks!<br><br><small style="opacity:0.5">(Status: No Packages file available locally/yet)</small>';
+            }
+        }
+
+        function parseAndRenderPackages(data) {
+            const container = document.getElementById('packages-container');
+            container.innerHTML = ''; // clear loading state
+            
+            // Split based on empty lines which separate APT packages
+            const blocks = data.split('\n\n');
+            const packages = [];
+            
+            for (let block of blocks) {
+                if (!block.trim()) continue;
+                
+                const pkg = {};
+                const lines = block.split('\n');
+                let lastKey = '';
+                
+                for (let line of lines) {
+                    if (line.startsWith(' ')) {
+                        // Multiline description handling (basic)
+                        if(lastKey) pkg[lastKey] += " " + line.trim();
+                        continue;
+                    }
+                    
+                    const splitIndex = line.indexOf(':');
+                    if (splitIndex > -1) {
+                        const key = line.substring(0, splitIndex).trim();
+                        const value = line.substring(splitIndex + 1).trim();
+                        pkg[key] = value;
+                        lastKey = key;
+                    }
+                }
+                
+                if (pkg.Package && pkg.Name) {
+                    packages.push(pkg);
+                }
+            }
+            
+            if (packages.length === 0) {
+                container.innerHTML = '<div class="loading-text">No packages found.</div>';
+                return;
+            }
+            
+            // Random colors for icons when not present
+            const colors = ['icon-blue', 'icon-purple', 'icon-emerald', 'icon-rose', 'icon-amber'];
+            
+            packages.sort((a,b) => a.Name.localeCompare(b.Name)).forEach((pkg, index) => {
+                const colorClass = colors[index % colors.length];
+                // Assuming standard Icon path if available, else letter
+                const iconContent = pkg.Icon ? `<img src="${repoUrl}/${pkg.Icon}" style="width:100%;height:100%;border-radius:12px;object-fit:cover;">` : pkg.Name.charAt(0).toUpperCase();
+
+                const card = document.createElement('div');
+                card.className = 'package-card';
+                card.innerHTML = `
+                    <div class="pkg-info">
+                        <div class="pkg-icon ${!pkg.Icon ? colorClass : ''}">
+                            ${iconContent}
+                        </div>
+                        <div class="pkg-details">
+                            <h3>${pkg.Name}</h3>
+                            <p>${pkg.Description ? pkg.Description.substring(0, 60) + (pkg.Description.length > 60 ? '...' : '') : pkg.Package}</p>
+                        </div>
+                    </div>
+                    <span class="pkg-version">v${pkg.Version}</span>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', fetchPackages);
+    </script>
 </body>
-
 </html>
