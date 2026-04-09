@@ -471,6 +471,137 @@
             font-weight: 500;
         }
 
+        /* FEATURED SLIDER */
+        .featured-slider {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 4px;
+        }
+
+        .slider-track::-webkit-scrollbar { display: none; }
+
+        .slider-card {
+            flex: 0 0 calc(50% - 8px);
+            min-width: 0;
+            scroll-snap-align: start;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slider-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .slider-banner {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slider-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-banner-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            letter-spacing: -1px;
+        }
+
+        .slider-body {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .slider-text {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .slider-text h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .slider-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--surface-border);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .slider-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.3);
+        }
+
+        /* Gradient colors for banner placeholders */
+        .grad-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .grad-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .grad-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .grad-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .grad-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .grad-6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
@@ -479,6 +610,7 @@
             .packages-grid { grid-template-columns: minmax(0, 1fr); }
             .detail-card { padding: 20px; }
             .detail-header { flex-direction: column; align-items: flex-start; }
+            .slider-card { flex: 0 0 100%; }
         }
     </style>
 </head>
@@ -522,6 +654,7 @@
             <div class="packages-grid" id="search-results-grid"></div>
         </div>
         <div id="view-home" class="view active">
+            <div id="featured-slider-container"></div>
             <div id="home-content">
                 <div style="text-align:center; padding: 40px; color: var(--text-muted);">Fetching repository data...</div>
             </div>
@@ -568,7 +701,7 @@
                 GitHub
             </a>
         </div>
-        <p class="footer-copy">&copy; 2026 NekosofTech. Built with H.DUN9</p>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> NekosofTech. Built with H.DUN9</p>
     </footer>
 
     <script>
@@ -631,24 +764,85 @@
             `;
         }
 
+        // Gradient classes for slider banners
+        const gradients = ['grad-1','grad-2','grad-3','grad-4','grad-5','grad-6'];
+
+        // Create a slider card
+        function createSliderCard(pkg, index) {
+            const bannerUrl = `${repoUrl}/depictions/${pkg.Package}/banner.png`;
+            const gradClass = gradients[index % gradients.length];
+            const desc = pkg.Description ? pkg.Description.split('\\n')[0] : pkg.Package;
+            return `
+                <a href="#package=${pkg.Package}" class="slider-card">
+                    <div class="slider-banner ${gradClass}">
+                        <img src="${bannerUrl}" alt="${pkg.Name} banner" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="slider-banner-placeholder" style="display:none;">${pkg.Name}</div>
+                    </div>
+                    <div class="slider-body">
+                        <div class="slider-text">
+                            <h3>${pkg.Name}</h3>
+                            <p>${desc}</p>
+                        </div>
+                        <div class="pkg-price-tag">FREE</div>
+                    </div>
+                </a>
+            `;
+        }
+
+        // Render featured slider
+        function renderFeaturedSlider() {
+            const container = document.getElementById('featured-slider-container');
+            const featured = globalPackages.slice(0, 6);
+            if (featured.length === 0) { container.innerHTML = ''; return; }
+
+            const cards = featured.map((p, i) => createSliderCard(p, i)).join('');
+            container.innerHTML = `
+                <div class="category-header">
+                    <div class="category-header-text">
+                        <h2>Featured</h2>
+                        <p>Newest tweaks on the repo</p>
+                    </div>
+                </div>
+                <div class="featured-slider">
+                    <div class="slider-track" id="slider-track">${cards}</div>
+                    <div class="slider-dots" id="slider-dots"></div>
+                </div>
+            `;
+
+            // Setup dots
+            const track = document.getElementById('slider-track');
+            const dotsContainer = document.getElementById('slider-dots');
+            const isMobile = window.innerWidth <= 600;
+            const perPage = isMobile ? 1 : 2;
+            const totalPages = Math.ceil(featured.length / perPage);
+
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.addEventListener('click', () => {
+                    const cardWidth = track.querySelector('.slider-card').offsetWidth + 16;
+                    track.scrollTo({ left: cardWidth * perPage * i, behavior: 'smooth' });
+                });
+                dotsContainer.appendChild(dot);
+            }
+
+            // Update dots on scroll
+            track.addEventListener('scroll', () => {
+                const cardWidth = track.querySelector('.slider-card').offsetWidth + 16;
+                const scrollPage = Math.round(track.scrollLeft / (cardWidth * perPage));
+                dotsContainer.querySelectorAll('.slider-dot').forEach((d, idx) => {
+                    d.classList.toggle('active', idx === scrollPage);
+                });
+            });
+        }
+
         // Home View Generator
         function renderHome() {
+            // Render featured slider
+            renderFeaturedSlider();
+
             const html = [];
-            
-            // Generate Latest section explicitly if enough packages exist
-            if (globalPackages.length > 0) {
-                html.push(`
-                    <div class="category-header">
-                        <div class="category-header-text">
-                            <h2>Recently Added / Updated</h2>
-                            <p>Discover the newest drops on the repo</p>
-                        </div>
-                    </div>
-                    <div class="packages-grid">
-                        ${globalPackages.slice(0, 4).map(p => createPackageCard(p)).join('')}
-                    </div>
-                `);
-            }
 
             // Generate specific categories (max 4 per section on home)
             for (const [sectionName, packages] of Object.entries(categoriesMap)) {
@@ -667,7 +861,7 @@
                 `);
             }
             
-            if(html.length === 0) {
+            if(html.length === 0 && globalPackages.length === 0) {
                 document.getElementById('home-content').innerHTML = '<div style="text-align:center; padding: 40px; color: var(--text-muted);">(No packages available yet. Action might still be deploying.)</div>';
             } else {
                 document.getElementById('home-content').innerHTML = html.join('');
@@ -785,7 +979,10 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', fetchPackages);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+            fetchPackages();
+        });
     </script>
 </body>
 </html>
