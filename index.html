@@ -109,13 +109,12 @@
         /* ACTION BUTTONS */
         .btn-grid {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 12px;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
             width: 100%;
-            max-width: 320px;
-            margin-left: auto;
-            margin-right: auto;
             animation: fadeIn 0.8s ease-out 0.2s both;
         }
 
@@ -133,6 +132,7 @@
             box-shadow: var(--shadow-sm);
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .btn-action:hover {
@@ -144,8 +144,70 @@
             width: 32px;
             height: 32px;
             border-radius: 8px;
-            margin-right: 16px;
+            margin-right: 12px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* SEARCH BAR */
+        .search-wrapper {
+            max-width: 480px;
+            margin: 0 auto 40px;
+            position: relative;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        .search-wrapper svg {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            border-radius: 16px;
+            border: 1px solid var(--surface-border);
+            background: var(--surface-color);
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.12);
+        }
+
+        /* SEARCH RESULTS */
+        .search-results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .search-results-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .search-results-header span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         /* COMPONENT VIEWS */
@@ -352,6 +414,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         @media (max-width: 600px) {
+            .btn-grid { flex-direction: column; align-items: stretch; }
             .packages-grid { grid-template-columns: minmax(0, 1fr); }
             .detail-card { padding: 20px; }
             .detail-header { flex-direction: column; align-items: flex-start; }
@@ -383,7 +446,20 @@
             </a>
         </div>
 
+        <!-- SEARCH BAR -->
+        <div class="search-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+            <input type="text" class="search-input" id="search-input" placeholder="Search tweaks..." autocomplete="off">
+        </div>
+
         <!-- ROUTER VIEWS -->
+        <div id="view-search" class="view">
+            <div class="search-results-header">
+                <h2>Search Results</h2>
+                <span id="search-count"></span>
+            </div>
+            <div class="packages-grid" id="search-results-grid"></div>
+        </div>
         <div id="view-home" class="view active">
             <div id="home-content">
                 <div style="text-align:center; padding: 40px; color: var(--text-muted);">Fetching repository data...</div>
@@ -554,12 +630,36 @@
             document.getElementById('cat-view-grid').innerHTML = pkgs.map(p => createPackageCard(p)).join('');
         }
 
+        // Search handler
+        let searchTimeout = null;
+        function handleSearch(query) {
+            query = query.trim().toLowerCase();
+            if (!query) {
+                // Clear search, go back to current route
+                handleRouting(true);
+                return;
+            }
+            const results = globalPackages.filter(p => p.Name.toLowerCase().includes(query));
+            document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+            document.getElementById('search-results-grid').innerHTML = results.length
+                ? results.map(p => createPackageCard(p)).join('')
+                : '<div style="text-align:center; padding: 40px; color: var(--text-muted); grid-column: 1/-1;">No tweaks found.</div>';
+            document.getElementById('search-count').textContent = results.length + ' found';
+            document.getElementById('view-search').classList.add('active');
+        }
+
         // Routing Engine
-        function handleRouting() {
+        function handleRouting(fromSearch) {
             const hash = window.location.hash;
             
             // Hide all views
             document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+
+            // If search input has value and not navigating from search clear, keep search
+            const searchInput = document.getElementById('search-input');
+            if (!fromSearch && searchInput && searchInput.value.trim()) {
+                searchInput.value = '';
+            }
             
             if (hash.startsWith('#package=')) {
                 const pkgId = decodeURIComponent(hash.substring(9));
@@ -594,7 +694,14 @@
             
             renderHome();
             handleRouting();
-            window.addEventListener('hashchange', handleRouting);
+            window.addEventListener('hashchange', () => handleRouting());
+
+            // Wire up search
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => handleSearch(searchInput.value), 200);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', fetchPackages);
