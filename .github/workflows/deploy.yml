@@ -1,0 +1,75 @@
+name: Build and Deploy Repo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install APT Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev bzip2 xz-utils zstd
+      
+      - name: Generate Packages
+        run: |
+          # Generate the main Packages file by scanning the debs folder
+          dpkg-scanpackages -m ./debs > Packages
+          
+          # Create compressed variants since modern package managers expect them
+          bzip2 -c9 Packages > Packages.bz2
+          xz -c9 Packages > Packages.xz
+          zstd -c19 Packages > Packages.zst
+          xz -5fkev --format=lzma Packages > Packages.lzma || true
+          
+      - name: Generate Release File
+        run: |
+          cat <<EOF > Release
+          Origin: NekosofTech's Repo
+          Label: NekosofTech
+          Suite: stable
+          Version: 1.0
+          Codename: nekosoftech
+          Architectures: iphoneos-arm iphoneos-arm64
+          Components: main
+          Description: All tweaks from NekosofTech
+          EOF
+          
+          echo "MD5Sum:" >> Release
+          for file in Packages Packages.bz2 Packages.xz Packages.zst Packages.lzma; do
+            if [ -f "$file" ]; then
+              echo " $(md5sum "$file" | cut -d ' ' -f 1) $(wc -c "$file" | cut -d ' ' -f 1) $file" >> Release
+            fi
+          done
+          
+          echo "SHA1:" >> Release
+          for file in Packages Packages.bz2 Packages.xz Packages.zst Packages.lzma; do
+            if [ -f "$file" ]; then
+              echo " $(sha1sum "$file" | cut -d ' ' -f 1) $(wc -c "$file" | cut -d ' ' -f 1) $file" >> Release
+            fi
+          done
+          
+          echo "SHA256:" >> Release
+          for file in Packages Packages.bz2 Packages.xz Packages.zst Packages.lzma; do
+            if [ -f "$file" ]; then
+              echo " $(sha256sum "$file" | cut -d ' ' -f 1) $(wc -c "$file" | cut -d ' ' -f 1) $file" >> Release
+            fi
+          done
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          force_orphan: true
