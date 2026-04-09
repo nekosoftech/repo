@@ -9,35 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-for-debs-modifications: # https://github.community/t/run-job-only-if-folder-changed/118292/2
-    name: Check for debs modifications
-    runs-on: ubuntu-latest
-    outputs:
-      modified: ${{ steps.check-debs.outputs.modified }}
-    steps:
-      - name: 📂 Checkout
-        uses: actions/checkout@v3.0.2
-        with:
-          fetch-depth: 2
-      - name: 📄 Checking for modified debs
-        id: check-debs
-        run: |
-          git diff --name-only HEAD^ HEAD > files.txt
-          while IFS= read -r file
-          do
-            echo Modified file: $file
-            if [[ $file != debs/* ]]; then
-              echo "::set-output name=modified::false"
-              break
-            else
-              echo "::set-output name=modified::true"
-            fi
-          done < files.txt
-
   update-packages-and-release:
     name: Update Packages and Release
-    needs: check-for-debs-modifications
-    if: needs.check-for-debs-modifications.outputs.modified == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: 📂 Checkout
@@ -91,15 +64,13 @@ jobs:
           ref: 'main'
       - name: 🔍 Check for dependencies
         run: |
-          command -v uglifycss || npm i -g uglifycss
-          command -v uglifyjs || npm i -g uglify-js
-          command -v jj || brew install tidwall/jj/jj
+          npm i -g uglifycss uglify-js
       - name: 🗜 Minify CSS files
         run: find $GITHUB_WORKSPACE -name "*.css" ! -name "*.min.*" -exec sh -c 'uglifycss --output "${0%.css}.min.css" "$0"' {} \;
       - name: 🗜 Minify JavaScript files
         run: find $GITHUB_WORKSPACE -name "*.js" ! -name "*.min.*" -exec sh -c 'uglifyjs -c -m -o "${0%.js}.min.js" "$0"' {} \;
       - name: 🗜 Minify JSON files
-        run: find $GITHUB_WORKSPACE -name "base.json" -exec sh -c 'jj -u < "$0" > ${0%base.json}sileo.json' {} \;
+        run: find $GITHUB_WORKSPACE -name "base.json" -exec sh -c 'python3 -c "import json, sys; json.dump(json.load(sys.stdin), sys.stdout)" < "$0" > "${0%base.json}sileo.json"' {} \;
       - name: 📤 Commit minified files
         run: |
           git pull origin main
