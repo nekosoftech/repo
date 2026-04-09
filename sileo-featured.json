@@ -1,0 +1,19 @@
+{
+    "class": "FeaturedBannersView",
+    "itemSize": "{263, 148}",
+    "itemCornerRadius": 10,
+    "banners": [
+        {
+            "url": "https://redentic.dev/depictions/com.redenticdev.sbcolors/banner.png",
+            "title": "SBColors",
+            "package": "com.redenticdev.sbcolors",
+            "hideShadow": false
+        },
+        {
+            "url": "https://redentic.dev/depictions/com.redenticdev.fastlpm/banner.png",
+            "title": "FastLPM",
+            "package": "com.redenticdev.fastlpm",
+            "hideShadow": false
+        }
+    ]
+}

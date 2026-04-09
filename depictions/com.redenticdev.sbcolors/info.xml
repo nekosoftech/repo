@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<packageInfo>
+    <name>SBColors</name>
+    <descriptions>
+        <description>
+            Easily change your status bar colors!
+        </description>
+        <description>
+            This tweaks allows you to change the color of your status bar items, individually.
+        </description>
+        <description>
+            Features:
+            - Individual change of the color of each status bar element
+            - Juice Beta and Prysm support!
+            - Modern and clean settings
+            - Use of both libcolorpicker and the brand new Alderis Color Picker
+            - Reset or disable options
+            - Support from iOS 11 to iOS 13
+            - Support for both notched and non-notched iPhone (A12 and A13 included)
+            - More to come! (Background support, individual reset...)
+        </description>
+    </descriptions>
+    <compatibility>
+        <miniOS>11.0</miniOS>
+        <maxiOS>13.5</maxiOS>
+    </compatibility>
+    <dependencies>
+        <dependency>mobilesubstrate or com.ex.substitute</dependency>
+        <dependency>preferenceloader</dependency>
+        <dependency>Cephei Tweak Support</dependency>
+        <dependency>Alderis or libcolorpicker</dependency>
+    </dependencies>
+    <changelog>
+        <change>
+            <changeVersion>v1.0.1</changeVersion>
+            <changeDescription>Added support for activity indicator</changeDescription>
+            <changeDescription>Added explanations for tweaks compatibilities</changeDescription>
+            <changeDescription>Added localizations</changeDescription>
+        </change>
+        <change>
+            <changeVersion>v1.0.0</changeVersion>
+            <changeDescription>Initial Release</changeDescription>
+        </change>
+    </changelog>
+    <screenshots>
+        <screen>1.png</screen>
+        <screen>2.png</screen>
+        <screen>3.png</screen>
+        <screen>4.png</screen>
+    </screenshots>
+    <information>
+        <developer>RedenticDev</developer>
+        <price>Free</price>
+        <category>Tweaks</category>
+    </information>
+    <links>
+        <github>https://github.com/RedenticDev</github>
+        <twitter>https://twitter.com/RedenticDev</twitter>
+        <reddit>https://www.reddit.com/user/redentic</reddit>
+        <discord>Redentic|0475|692312923661664256</discord>
+        <mail>mailto:hello@redentic.dev</mail>
+        <paypal>https://www.paypal.me/redenticdev</paypal>
+    </links>
+</packageInfo>
