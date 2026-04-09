@@ -1,0 +1,23 @@
+{
+    "minVersion": "0.1",
+    "class": "DepictionTabView",
+    "tabs": [
+        {
+            "tabname": "Details",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "CamAction",
+                    "useBoldText": true,
+                    "useBottomMargin": false
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "Welcome to CamAction by NekosofTech. A powerful tweak to enhance your iOS experience.",
+                    "useSpacing": true
+                }
+            ]
+        }
+    ],
+    "tintColor": "#3498db"
+}
