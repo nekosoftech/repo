@@ -1,11 +1,11 @@
-Origin: Redentic's Repo
-Label: Redentic's Repo
+Origin: NekosofTech Repo
+Label: NekosofTech Repo
 Suite: stable
 Version: 1.0
 Codename: cydia-ios
 Architectures: iphoneos-arm
 Components: main
-Description: All tweaks made by Redentic
+Description: All tweaks made by NekosofTech
 Date: Sat, 14 Aug 2021 10:42:41 +0000
 MD5Sum:
  ed7408363fc3321d371cf03b6b80a34e            13705 Packages
