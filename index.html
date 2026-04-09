@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NekosofTech's Repo</title>
     <meta name="description" content="All tweaks from NekosofTech. Add this repository to your favorite package manager.">
+    <!-- Open Graph SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nekosoftech.github.io/repo/">
+    <meta property="og:title" content="NekosofTech's Repo">
+    <meta property="og:description" content="Experience premium tweaks designed to enhance and customize your iOS device to its fullest potential.">
+    <meta property="og:image" content="https://nekosoftech.github.io/repo/logo/nekosoftech_logo.png">
+    <!-- Twitter SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://nekosoftech.github.io/repo/">
+    <meta name="twitter:title" content="NekosofTech's Repo">
+    <meta name="twitter:description" content="Experience premium tweaks designed to enhance and customize your iOS device to its fullest potential.">
+    <meta name="twitter:image" content="https://nekosoftech.github.io/repo/logo/nekosoftech_logo.png">
+    <link rel="icon" type="image/png" href="logo/nekosoftech_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -177,7 +190,7 @@
         /* GRID AND CARDS */
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
             gap: 16px;
         }
 
@@ -347,7 +360,7 @@
         <!-- HEADER (Always visible) -->
         <div class="header">
             <div class="logo-wrapper">
-                <img src="CydiaIcon.png" alt="NekosofTech" class="logo" onerror="this.src='logo/CydiaIcon.png'">
+                <img src="logo/nekosoftech_logo.png" alt="NekosofTech" class="logo" onerror="this.src='logo/CydiaIcon.png'">
             </div>
             <h1>NekosofTech</h1>
             <p class="subtitle">Experience premium tweaks designed to enhance and customize your iOS device to its fullest potential.</p>
@@ -440,7 +453,8 @@
 
         // Render card
         function createPackageCard(pkg) {
-            const iconUrl = pkg.Icon ? `${repoUrl}/${pkg.Icon}` : `logo/CydiaIcon.png`;
+            // First look inside depictions for custom AI icons, otherwise fallback to CydiaIcon
+            const iconUrl = `${repoUrl}/depictions/${pkg.Package}/icon.png`;
             return `
                 <a href="#package=${pkg.Package}" class="package-card">
                     <div class="pkg-info">
@@ -503,7 +517,7 @@
             const pkg = globalPackages.find(p => p.Package === pkgId);
             if (!pkg) return;
             
-            const iconUrl = pkg.Icon ? `${repoUrl}/${pkg.Icon}` : `logo/CydiaIcon.png`;
+            const iconUrl = `${repoUrl}/depictions/${pkg.Package}/icon.png`;
             const desc = pkg.Description ? pkg.Description.replace(/\\n/g, '<br>') : 'No description provided.';
             
             document.getElementById('detail-card').innerHTML = `
