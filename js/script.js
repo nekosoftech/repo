@@ -1,7 +1,7 @@
 /**
  * Automatically get date for footer
  */
-document.getElementsByTagName("footer")[0].innerHTML = "<p>© Copyright 2020-" + new Date().getFullYear() + " • Redentic</p>";
+document.getElementsByTagName("footer")[0].innerHTML = "<p>© Copyright 2020-" + new Date().getFullYear() + " • NekosofTech</p>";
 
 /**
  * Toggle on/off the dropdown spoiler '_WHOAMI'
@@ -27,7 +27,7 @@ new Promise((resolve, reject) => {
             reject("An error occurred.\n(readyState = "
                 + req.readyState + ", status = " + req.status + ")");
         }
-        req.open("GET", "https://raw.githubusercontent.com/RedenticDev/RedenticDev/main/README.md");
+        req.open("GET", "https://raw.githubusercontent.com/nekosoftech/repo/main/README.md");
         req.send();
     } catch (er) {
         reject(er.message);
@@ -43,7 +43,7 @@ new Promise((resolve, reject) => {
 $(() => {
     // I have to put existing packages manually as GitHub Pages doesn't
     // accept Node.JS/PHP, so I can't browse subfolders automatically :(
-    const packages = ["com.redenticdev.sbcolors", "com.redenticdev.fastlpm", "com.redenticdev.respringpack", "com.redenticdev.appmore", "com.redenticdev.swrespringpack"];
+    const packages = ["com.hdun9.privacydisplay", "com.hdun9.camaction", "com.hdun9.homeaction", "com.hdun9.icloudremove", "com.hdun9.virtualcam"];
 
     // Random order with Chrome/Opera/Safari 14(?)+
     $.each(packages, (_, actualPackage) => {
