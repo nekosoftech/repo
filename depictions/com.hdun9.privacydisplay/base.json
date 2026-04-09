@@ -1,23 +1,71 @@
 {
     "minVersion": "0.1",
     "class": "DepictionTabView",
+    "headerImage": "https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/banner.png",
+    "tintColor": "#3498db",
     "tabs": [
         {
             "tabname": "Details",
+            "class": "DepictionStackView",
             "views": [
                 {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### Welcome to PrivacyDisplay\n\nExperience a new level of customization with PrivacyDisplay. This tweak is designed to provide you with seamless and powerful enhancements for your iOS device.",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
                     "class": "DepictionHeaderView",
-                    "title": "PrivacyDisplay",
-                    "useBoldText": true,
-                    "useBottomMargin": false
+                    "title": "Features",
+                    "useBoldText": true
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "Welcome to PrivacyDisplay by NekosofTech. A powerful tweak to enhance your iOS experience.",
+                    "markdown": "- Fully optimized for iOS 15 & 16.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Information",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Developer",
+                    "text": "H.DUN9"
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Compatibility",
+                    "text": "iOS 14.0 - 16.x"
+                }
+            ]
+        },
+        {
+            "tabname": "Changelog",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Version 1.0.0",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Initial release.\n- Added core functionality.\n- Bug fixes and stability improvements.",
                     "useSpacing": true
                 }
             ]
         }
-    ],
-    "tintColor": "#3498db"
+    ]
 }

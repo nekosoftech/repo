@@ -384,6 +384,64 @@
             border-top: 1px solid var(--surface-border);
         }
 
+        /* DEPICTION VIEWS */
+        .depiction-banner {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            overflow: hidden;
+            border: 1px solid var(--surface-border);
+            box-shadow: var(--shadow-sm);
+        }
+        .depiction-banner img {
+            width: 100%;
+            aspect-ratio: 5 / 2;
+            object-fit: cover;
+            display: block;
+        }
+        .depiction-header {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
+        .depiction-markdown {
+            line-height: 1.6;
+            color: #374151;
+            font-size: 1rem;
+        }
+        .depiction-markdown ul {
+            margin-left: 24px;
+            padding-left: 0;
+        }
+        .depiction-markdown li {
+            margin-bottom: 6px;
+        }
+        .depiction-separator {
+            border: none;
+            border-top: 1px solid var(--surface-border);
+            margin: 24px 0;
+        }
+        .depiction-table-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--surface-border);
+            font-size: 1rem;
+        }
+        .depiction-table-row:last-child {
+            border-bottom: none;
+        }
+        .depiction-table-title {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .depiction-table-text {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
         .back-nav {
             display: inline-flex;
             align-items: center;
@@ -704,7 +762,7 @@
             </a>
             <a href="https://x.com/huudung038" target="_blank" class="social-btn twitter" aria-label="X / Twitter">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                X.com
+                .COM
             </a>
             <a href="https://github.com/nekosoftech" target="_blank" class="social-btn github" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
@@ -878,6 +936,59 @@
             }
         }
 
+        // Depiction Parser
+        function parseMarkdownToHTML(md) {
+            if (!md) return '';
+            let html = md;
+            html = html.replace(/### (.*?)\n/g, '<h3>$1</h3>');
+            html = html.replace(/## (.*?)\n/g, '<h2>$1</h2>');
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/- (.*?)\n/g, '<li>$1</li>');
+            html = html.replace(/(<li>.*?<\/li>)/g, '<ul>$1</ul>').replace(/<\/ul><ul>/g, ''); // Fix ul matching
+            html = html.replace(/\n\n/g, '<br><br>');
+            html = html.replace(/\\n/g, '<br>');
+            return html;
+        }
+
+        async function fetchAndRenderDepiction(pkgId, fallbackDesc) {
+            const container = document.getElementById('depiction-body');
+            try {
+                const res = await fetch(`${repoUrl}/depictions/${pkgId}/sileo.json`);
+                if (!res.ok) throw new Error("No sileo.json");
+                const sileo = await res.json();
+                
+                let html = '';
+                if (sileo.headerImage) {
+                    html += `<div class="depiction-banner"><img src="${sileo.headerImage}" onerror="this.parentElement.style.display='none'"></div>`;
+                }
+
+                // Simplified tab view - just render Details tab views
+                const detailsTab = sileo.tabs.find(t => t.tabname === 'Details') || sileo.tabs[0];
+                const views = detailsTab ? detailsTab.views : [];
+                
+                for (const view of views) {
+                    if (view.class === 'DepictionHeaderView') {
+                        html += `<div class="depiction-header">${view.title}</div>`;
+                    } else if (view.class === 'DepictionMarkdownView') {
+                        html += `<div class="depiction-markdown">${parseMarkdownToHTML(view.markdown + '\\n')}</div>`;
+                    } else if (view.class === 'DepictionSpacerView') {
+                        html += `<div style="height: ${view.spacing}px;"></div>`;
+                    } else if (view.class === 'DepictionSeparatorView') {
+                        html += `<hr class="depiction-separator">`;
+                    } else if (view.class === 'DepictionTableTextView') {
+                        html += `<div class="depiction-table-row">
+                                    <div class="depiction-table-title">${view.title}</div>
+                                    <div class="depiction-table-text">${view.text}</div>
+                                 </div>`;
+                    }
+                }
+                container.innerHTML = html;
+            } catch (err) {
+                // Fallback to Package Description if Sileo JSON is missing or fails
+                container.innerHTML = `<div class="detail-description">${fallbackDesc}</div>`;
+            }
+        }
+
         // Detail View Generator
         function renderDetail(pkgId) {
             const pkg = globalPackages.find(p => p.Package === pkgId);
@@ -898,14 +1009,19 @@
                        <span class="pkg-price-tag" style="font-size:1.1rem; padding: 8px 20px;">FREE</span>
                     </div>
                 </div>
-                <div class="detail-description">
-                    ${desc}
+                
+                <div id="depiction-body">
+                    <div style="text-align:center; padding: 40px; color: var(--text-muted);">Loading details...</div>
                 </div>
-                <div style="background:var(--bg-color); padding:16px; border-radius:12px; font-family:monospace; font-size:0.85rem; color: var(--text-muted); word-break:break-all;">
+
+                <div style="background:var(--bg-color); padding:16px; border-radius:12px; font-family:monospace; font-size:0.85rem; color: var(--text-muted); word-break:break-all; margin-top:24px;">
                     Bundle ID: ${pkg.Package}<br>
                     Architecture: ${pkg.Architecture || 'iphoneos-arm'}
                 </div>
             `;
+
+            // Start fetching rich Sileo depiction
+            fetchAndRenderDepiction(pkg.Package, desc);
         }
 
         // Category Detail View
