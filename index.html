@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NekosofTech's Repo</title>
     <meta name="description" content="All tweaks from NekosofTech. Add this repository to your favorite package manager.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --surface-color: rgba(255, 255, 255, 0.8);
-            --surface-border: rgba(0, 0, 0, 0.05);
-            --primary-color: #6366f1;
-            --primary-glow: rgba(99, 102, 241, 0.15);
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --bg-color: #f4f4f7;
+            --surface-color: #ffffff;
+            --surface-color-hover: #fcfcfc;
+            --surface-border: #eef0f2;
+            --primary-color: #007aff;
+            --text-main: #1c1c1e;
+            --text-muted: #8e8e93;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+            --tag-bg: #e6f2ff;
+            --tag-text: #007aff;
         }
 
         * {
@@ -32,263 +36,360 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 25%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
-            padding: 40px 20px;
+            padding: 40px 24px;
             z-index: 10;
         }
 
+        /* HEADER SECTION */
         .header {
             text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.6s ease-out;
         }
 
         .logo-wrapper {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            border-radius: 30px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 16px;
+            border-radius: 24px;
             overflow: hidden;
-            background: linear-gradient(145deg, #ffffff, #f0f0f0);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 0 20px var(--primary-glow);
+            background: #ffffff;
+            box-shadow: var(--shadow-small);
             border: 1px solid var(--surface-border);
-            padding: 10px;
         }
 
         .logo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #1e293b, #4338ca);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         p.subtitle {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.5;
             max-width: 500px;
             margin: 0 auto;
         }
 
+        /* ACTION BUTTONS */
         .btn-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin-bottom: 60px;
-            animation: fadeIn 1s ease-out 0.3s both;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 48px;
+            width: 100%;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 0.8s ease-out 0.2s both;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.2);
-            gap: 8px;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(white, transparent);
-            opacity: 0.1;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-        }
-
-        .btn-sileo { background: linear-gradient(135deg, #1c888e, #136970); box-shadow: 0 4px 15px rgba(28, 136, 142, 0.3); }
-        .btn-zebra { background: linear-gradient(135deg, #1a1a1a, #333333); box-shadow: 0 4px 15px rgba(26, 26, 26, 0.3); }
-        .btn-cydia { background: linear-gradient(135deg, #8B5F4D, #6b4738); box-shadow: 0 4px 15px rgba(139, 95, 77, 0.3); }
-        
-        .btn svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #334155;
+        .btn-action {
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: flex-start;
+            padding: 12px 20px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
         }
 
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, var(--surface-border), transparent);
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        .packages-list {
+        .btn-action img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            margin-right: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* COMPONENT VIEWS */
+        .view {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* SECTION HEADERS */
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--surface-border);
+            margin-top: 32px;
+        }
+        
+        .category-header:first-of-type { margin-top: 0; }
+
+        .category-header-text h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .category-header-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .view-all-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .view-all-link:hover { text-decoration: underline; }
+
+        /* GRID AND CARDS */
+        .packages-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            animation: fadeIn 1s ease-out 0.6s both;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
         }
 
         .package-card {
             background: var(--surface-color);
             border: 1px solid var(--surface-border);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
         }
 
         .package-card:hover {
-            transform: scale(1.01);
-            border-color: rgba(99, 102, 241, 0.3);
-            background: #ffffff;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            background: var(--surface-color-hover);
+            box-shadow: var(--shadow-md);
+            border-color: #d1d5db;
         }
 
         .pkg-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
+            flex: 1;
+            min-width: 0;
         }
 
         .pkg-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(99, 102, 241, 0.05);
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            background: #f4f4f5;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            flex-shrink: 0;
+            overflow: hidden;
             border: 1px solid var(--surface-border);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        
+        .pkg-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pkg-details {
+            min-width: 0;
+            flex: 1;
+            padding-right: 8px;
         }
 
         .pkg-details h3 {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 4px;
-            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .pkg-details p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .pkg-version {
             font-size: 0.85rem;
-            color: #4f46e5;
-            background: rgba(99, 102, 241, 0.1);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
+        .pkg-price-tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        /* DETAIL VIEW */
+        .detail-card {
+            background: var(--surface-color);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--surface-border);
+            margin-top: 20px;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .detail-header .pkg-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+        }
+
+        .detail-info h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .detail-info .meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .detail-description {
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #374151;
+            padding-top: 20px;
+            border-top: 1px solid var(--surface-border);
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .back-nav:hover { text-decoration: underline; }
+
+        /* FOOTER */
         .footer {
             margin-top: auto;
-            padding: 30px;
+            padding: 40px 20px;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .footer a {
-            color: #4f46e5;
-            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
         }
 
-        .loading-text {
-            text-align: center;
-            color: var(--text-muted);
-            padding: 20px;
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        @media (max-width: 600px) {
+            .packages-grid { grid-template-columns: 1fr; }
+            .detail-card { padding: 20px; }
+            .detail-header { flex-direction: column; align-items: flex-start; }
         }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Fallback icon colors */
-        .icon-blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
-        .icon-purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
-        .icon-emerald { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-        .icon-rose { background: rgba(244, 63, 94, 0.1); color: #f43f5e; }
-        .icon-amber { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
     </style>
 </head>
 <body>
 
     <div class="container">
+        
+        <!-- HEADER (Always visible) -->
         <div class="header">
             <div class="logo-wrapper">
-                <img src="CydiaIcon.png" alt="NekosofTech Logo" class="logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23e0e0e0\'/></svg>'">
+                <img src="CydiaIcon.png" alt="NekosofTech" class="logo" onerror="this.src='logo/CydiaIcon.png'">
             </div>
             <h1>NekosofTech</h1>
             <p class="subtitle">Experience premium tweaks designed to enhance and customize your iOS device to its fullest potential.</p>
         </div>
 
         <div class="btn-grid">
-            <a href="sileo://source/https://nekosoftech.github.io/repo" class="btn btn-sileo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.9 6.13L15 15l4.89-3.92A7 7 0 0 1 11 20z"/><path d="M11 4a7 7 0 0 1 1.1 13.87L7 9l-4.89 3.92A7 7 0 0 1 11 4z"/></svg> 
-                Sileo
+            <a href="sileo://source/https://nekosoftech.github.io/repo" class="btn-action">
+                <img src="logo/SileoIcon.png" alt="Sileo"> Add to Sileo
             </a>
-            <a href="zbra://sources/add/https://nekosoftech.github.io/repo" class="btn btn-zebra">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg> 
-                Zebra
+            <a href="zbra://sources/add/https://nekosoftech.github.io/repo" class="btn-action">
+                <img src="logo/ZebraIcon.png" alt="Zebra"> Add to Zebra
             </a>
-            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://nekosoftech.github.io/repo" class="btn btn-cydia">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> 
-                Cydia
+            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://nekosoftech.github.io/repo" class="btn-action">
+                <img src="logo/CydiaIcon.png" alt="Cydia"> Add to Cydia
             </a>
         </div>
 
-        <h2 class="section-title">Packages</h2>
-        
-        <div class="packages-list" id="packages-container">
-            <div class="loading-text" id="loading-msg">Fetching tweaks...</div>
+        <!-- ROUTER VIEWS -->
+        <div id="view-home" class="view active">
+            <div id="home-content">
+                <div style="text-align:center; padding: 40px; color: var(--text-muted);">Fetching repository data...</div>
+            </div>
         </div>
+
+        <div id="view-category" class="view">
+            <a href="#" class="back-nav" id="cat-back-btn">← Back to Overview</a>
+            <div class="category-header">
+                <div class="category-header-text">
+                    <h2 id="cat-view-title">Category</h2>
+                    <p>All tweaks in this section</p>
+                </div>
+            </div>
+            <div class="packages-grid" id="cat-view-grid"></div>
+        </div>
+
+        <div id="view-detail" class="view">
+            <a href="#" class="back-nav" id="det-back-btn">← Back to Overview</a>
+            <div class="detail-card" id="detail-card">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
     </div>
 
     <footer class="footer">
@@ -296,91 +397,187 @@
     </footer>
 
     <script>
-        const repoUrl = window.location.href.replace('index.html', '').replace(/\/$/, "");
-        
-        async function fetchPackages() {
-            try {
-                // Fetch the Packages file
-                const response = await fetch(`${repoUrl}/Packages`);
-                if (!response.ok) throw new Error('Packages file not found or inaccessible.');
-                
-                const text = await response.text();
-                parseAndRenderPackages(text);
-            } catch (error) {
-                console.error(error);
-                document.getElementById('loading-msg').innerHTML = 
-                    'Repository active. Add to your package manager to view all tweaks!<br><br><small style="opacity:0.5">(Status: Packages file is currently building or not yet deployed via GitHub Pages)</small>';
-            }
-        }
+        const repoUrl = window.location.href.split('#')[0].replace('index.html', '').replace(/\/$/, "");
+        let globalPackages = [];
+        let categoriesMap = {};
 
-        function parseAndRenderPackages(data) {
-            const container = document.getElementById('packages-container');
-            container.innerHTML = ''; // clear loading state
-            
-            // Split based on empty lines which separate APT packages
+        // Parse standard APT block format
+        function parsePackagesText(data) {
             const blocks = data.split('\n\n');
-            const packages = [];
-            
+            const arr = [];
             for (let block of blocks) {
                 if (!block.trim()) continue;
-                
                 const pkg = {};
-                const lines = block.split('\n');
                 let lastKey = '';
-                
-                for (let line of lines) {
+                for (let line of block.split('\n')) {
                     if (line.startsWith(' ')) {
-                        // Multiline description handling (basic)
-                        if(lastKey) pkg[lastKey] += " " + line.trim();
+                        // Multi-line continuation
+                        if(lastKey) pkg[lastKey] += "\\n" + line.trim();
                         continue;
                     }
-                    
                     const splitIndex = line.indexOf(':');
                     if (splitIndex > -1) {
                         const key = line.substring(0, splitIndex).trim();
-                        const value = line.substring(splitIndex + 1).trim();
-                        pkg[key] = value;
+                        const val = line.substring(splitIndex + 1).trim();
+                        pkg[key] = val;
                         lastKey = key;
                     }
                 }
-                
-                if (pkg.Package && pkg.Name) {
-                    packages.push(pkg);
-                }
+                if (pkg.Package && pkg.Name) arr.push(pkg);
             }
-            
-            if (packages.length === 0) {
-                container.innerHTML = '<div class="loading-text">No packages found.</div>';
-                return;
-            }
-            
-            // Random colors for icons when not present
-            const colors = ['icon-blue', 'icon-purple', 'icon-emerald', 'icon-rose', 'icon-amber'];
-            
-            packages.sort((a,b) => a.Name.localeCompare(b.Name)).forEach((pkg, index) => {
-                const colorClass = colors[index % colors.length];
-                // Assuming standard Icon path if available, else letter
-                const iconContent = pkg.Icon ? `<img src="${repoUrl}/${pkg.Icon}" style="width:100%;height:100%;border-radius:12px;object-fit:cover;">` : pkg.Name.charAt(0).toUpperCase();
-
-                const card = document.createElement('div');
-                card.className = 'package-card';
-                card.innerHTML = `
-                    <div class="pkg-info">
-                        <div class="pkg-icon ${!pkg.Icon ? colorClass : ''}">
-                            ${iconContent}
-                        </div>
-                        <div class="pkg-details">
-                            <h3>${pkg.Name}</h3>
-                            <p>${pkg.Description ? pkg.Description.substring(0, 60) + (pkg.Description.length > 60 ? '...' : '') : pkg.Package}</p>
-                        </div>
-                    </div>
-                    <span class="pkg-version">v${pkg.Version}</span>
-                `;
-                container.appendChild(card);
-            });
+            return arr.reverse(); // Reverse to simulate "Latest Uploads" naturally via array reversing
         }
 
-        // Initialize
+        function buildCategories(packages) {
+            const map = {};
+            packages.forEach(pkg => {
+                const section = pkg.Section || "Tweaks";
+                if (!map[section]) map[section] = [];
+                map[section].push(pkg);
+            });
+            return map;
+        }
+
+        // Render card
+        function createPackageCard(pkg) {
+            const iconUrl = pkg.Icon ? `${repoUrl}/${pkg.Icon}` : `logo/CydiaIcon.png`;
+            return `
+                <a href="#package=${pkg.Package}" class="package-card">
+                    <div class="pkg-info">
+                        <div class="pkg-icon"><img src="${iconUrl}" onerror="this.src='logo/CydiaIcon.png';"></div>
+                        <div class="pkg-details">
+                            <h3>${pkg.Name}</h3>
+                            <p>${pkg.Description ? pkg.Description.split('\\n')[0] : pkg.Package}</p>
+                        </div>
+                    </div>
+                    <div class="pkg-price-tag">FREE</div>
+                </a>
+            `;
+        }
+
+        // Home View Generator
+        function renderHome() {
+            const html = [];
+            
+            // Generate Latest section explicitly if enough packages exist
+            if (globalPackages.length > 0) {
+                html.push(`
+                    <div class="category-header">
+                        <div class="category-header-text">
+                            <h2>Recently Added / Updated</h2>
+                            <p>Discover the newest drops on the repo</p>
+                        </div>
+                    </div>
+                    <div class="packages-grid">
+                        ${globalPackages.slice(0, 4).map(p => createPackageCard(p)).join('')}
+                    </div>
+                `);
+            }
+
+            // Generate specific categories (max 4 per section on home)
+            for (const [sectionName, packages] of Object.entries(categoriesMap)) {
+                if (packages.length === 0) continue;
+                html.push(`
+                    <div class="category-header">
+                        <div class="category-header-text">
+                            <h2>${sectionName}</h2>
+                            <p>Browse all ${sectionName} modifications</p>
+                        </div>
+                        <a href="#category=${encodeURIComponent(sectionName)}" class="view-all-link">View All →</a>
+                    </div>
+                    <div class="packages-grid">
+                        ${packages.slice(0, 4).map(p => createPackageCard(p)).join('')}
+                    </div>
+                `);
+            }
+            
+            if(html.length === 0) {
+                document.getElementById('home-content').innerHTML = '<div style="text-align:center; padding: 40px; color: var(--text-muted);">(No packages available yet. Action might still be deploying.)</div>';
+            } else {
+                document.getElementById('home-content').innerHTML = html.join('');
+            }
+        }
+
+        // Detail View Generator
+        function renderDetail(pkgId) {
+            const pkg = globalPackages.find(p => p.Package === pkgId);
+            if (!pkg) return;
+            
+            const iconUrl = pkg.Icon ? `${repoUrl}/${pkg.Icon}` : `logo/CydiaIcon.png`;
+            const desc = pkg.Description ? pkg.Description.replace(/\\n/g, '<br>') : 'No description provided.';
+            
+            document.getElementById('detail-card').innerHTML = `
+                <div class="detail-header">
+                    <div class="pkg-icon" style="flex-shrink:0; border-radius: 20px; overflow:hidden; border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm);"><img src="${iconUrl}" onerror="this.src='logo/CydiaIcon.png';" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="detail-info">
+                        <h2>${pkg.Name}</h2>
+                        <div class="meta">v${pkg.Version} &bull; ${pkg.Author || pkg.Maintainer || 'NekosofTech'}</div>
+                        <div class="meta" style="margin-top:6px;">Section: ${pkg.Section || 'Tweaks'}</div>
+                    </div>
+                    <div style="flex-grow:1; text-align:right;">
+                       <span class="pkg-price-tag" style="font-size:1.1rem; padding: 8px 20px;">FREE</span>
+                    </div>
+                </div>
+                <div class="detail-description">
+                    ${desc}
+                </div>
+                <div style="background:var(--bg-color); padding:16px; border-radius:12px; font-family:monospace; font-size:0.85rem; color: var(--text-muted); word-break:break-all;">
+                    Bundle ID: ${pkg.Package}<br>
+                    Architecture: ${pkg.Architecture || 'iphoneos-arm'}
+                </div>
+            `;
+        }
+
+        // Category Detail View
+        function renderCategoryView(catName) {
+            document.getElementById('cat-view-title').innerText = catName;
+            const pkgs = categoriesMap[catName] || [];
+            document.getElementById('cat-view-grid').innerHTML = pkgs.map(p => createPackageCard(p)).join('');
+        }
+
+        // Routing Engine
+        function handleRouting() {
+            const hash = window.location.hash;
+            
+            // Hide all views
+            document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+            
+            if (hash.startsWith('#package=')) {
+                const pkgId = decodeURIComponent(hash.substring(9));
+                renderDetail(pkgId);
+                document.getElementById('view-detail').classList.add('active');
+            } 
+            else if (hash.startsWith('#category=')) {
+                const catName = decodeURIComponent(hash.substring(10));
+                renderCategoryView(catName);
+                document.getElementById('view-category').classList.add('active');
+            } 
+            else {
+                document.getElementById('view-home').classList.add('active');
+            }
+            
+            // Scroll to top on navigation safely
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        // Initializer
+        async function fetchPackages() {
+            try {
+                const response = await fetch(`${repoUrl}/Packages`);
+                if (!response.ok) throw new Error('Not found');
+                const text = await response.text();
+                
+                globalPackages = parsePackagesText(text);
+                categoriesMap = buildCategories(globalPackages);
+            } catch (error) {
+                console.error("No packages found yet. ", error);
+            }
+            
+            renderHome();
+            handleRouting();
+            window.addEventListener('hashchange', handleRouting);
+        }
+
         document.addEventListener('DOMContentLoaded', fetchPackages);
     </script>
 </body>
