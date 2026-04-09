@@ -1,0 +1,23 @@
+{
+    "minVersion": "0.1",
+    "class": "DepictionTabView",
+    "tabs": [
+        {
+            "tabname": "Details",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "VirtualCam",
+                    "useBoldText": true,
+                    "useBottomMargin": false
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "Welcome to VirtualCam by NekosofTech. A powerful tweak to enhance your iOS experience.",
+                    "useSpacing": true
+                }
+            ]
+        }
+    ],
+    "tintColor": "#3498db"
+}

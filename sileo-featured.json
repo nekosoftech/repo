@@ -4,15 +4,33 @@
     "itemCornerRadius": 10,
     "banners": [
         {
-            "url": "https://nekosoftech.github.io/repo/depictions/com.redenticdev.sbcolors/banner.png",
-            "title": "SBColors",
-            "package": "com.redenticdev.sbcolors",
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/banner.png",
+            "title": "PrivacyDisplay",
+            "package": "com.hdun9.privacydisplay",
             "hideShadow": false
         },
         {
-            "url": "https://nekosoftech.github.io/repo/depictions/com.redenticdev.fastlpm/banner.png",
-            "title": "FastLPM",
-            "package": "com.redenticdev.fastlpm",
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png",
+            "title": "CamAction",
+            "package": "com.hdun9.camaction",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.homeaction/banner.png",
+            "title": "HomeAction",
+            "package": "com.hdun9.homeaction",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.icloudremove/banner.png",
+            "title": "iCloudRemove",
+            "package": "com.hdun9.icloudremove",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.virtualcam/banner.png",
+            "title": "VirtualCam",
+            "package": "com.hdun9.virtualcam",
             "hideShadow": false
         }
     ]
