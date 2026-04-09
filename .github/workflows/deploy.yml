@@ -43,6 +43,7 @@ jobs:
           Architectures: iphoneos-arm iphoneos-arm64
           Components: main
           Description: All tweaks from NekosofTech
+          Icon: https://nekosoftech.github.io/repo/CydiaIcon.png
           EOF
           
           echo "MD5Sum:" >> Release
