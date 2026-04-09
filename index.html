@@ -461,7 +461,7 @@
             return `
                 <a href="#package=${pkg.Package}" class="package-card">
                     <div class="pkg-info">
-                        <div class="pkg-icon"><img src="${iconUrl}" onerror="this.src='logo/CydiaIcon.png';"></div>
+                        <div class="pkg-icon"><img src="${iconUrl}" alt="${pkg.Name} icon" onerror="this.src='logo/CydiaIcon.png';"></div>
                         <div class="pkg-details">
                             <h3>${pkg.Name}</h3>
                             <p>${pkg.Description ? pkg.Description.split('\\n')[0] : pkg.Package}</p>
@@ -525,7 +525,7 @@
             
             document.getElementById('detail-card').innerHTML = `
                 <div class="detail-header">
-                    <div class="pkg-icon" style="flex-shrink:0; border-radius: 20px; overflow:hidden; border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm);"><img src="${iconUrl}" onerror="this.src='logo/CydiaIcon.png';" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="pkg-icon" style="flex-shrink:0; border-radius: 20px; overflow:hidden; border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm);"><img src="${iconUrl}" alt="${pkg.Name} icon" onerror="this.src='logo/CydiaIcon.png';" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="detail-info">
                         <h2>${pkg.Name}</h2>
                         <div class="meta">v${pkg.Version} &bull; ${pkg.Author || pkg.Maintainer || 'NekosofTech'}</div>
