@@ -1,0 +1,27 @@
+Origin: NekosofTech's Repo
+Label: NekosofTech
+Suite: stable
+Version: 1.0
+Codename: nekosoftech
+Architectures: iphoneos-arm iphoneos-arm64
+Components: main
+Description: All tweaks from NekosofTech
+Icon: https://nekosoftech.github.io/repo/CydiaIcon.png
+MD5Sum:
+ 9b9262ef86c93a6458a594a98e310c07 2971 Packages
+ 67b97d1504b8ca1cdf10054a062bfd78 1392 Packages.bz2
+ dac223330d9c8d85d8cb65d72eaba760 1312 Packages.xz
+ e0584dd087ded4cb542c126622df2c7e 1253 Packages.zst
+ 6ce39e4138455ed07d8dd3752719b99e 1266 Packages.lzma
+SHA1:
+ 6f9f20502db95488aa53982852d7eac3d2e82d06 2971 Packages
+ 36fd6710c9a11adcdb88acb59ecadfb71a061632 1392 Packages.bz2
+ 720ae5734689388ff6fb3611c711cc192873c98a 1312 Packages.xz
+ cb3c4ad7a63f5d0bb40b6e17f8144f02c2666f50 1253 Packages.zst
+ 9343deae1e5014a3a4fb15455ecc0a52e81e8d95 1266 Packages.lzma
+SHA256:
+ 9891d5609c1198103b38ee3a44178cf3ebd239341c7597e0162b68baa9aec529 2971 Packages
+ 951cd123dd16127661f84cf5816e0536b30ea34594b066eff1b41c429036d46b 1392 Packages.bz2
+ fd6162a0c4646e3c2942b86dbc7481a877f10fe4604dc758fc03b49e471398be 1312 Packages.xz
+ 1f12b316ac4875d876fd4d9c1e23cdb3b1fcd137c4bf5ea3cad42d29ca1651df 1253 Packages.zst
+ 1a26596be49e7be8aa38385bb9f5ea58b27fa33c943fd805ec233bb731bee6fb 1266 Packages.lzma
