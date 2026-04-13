@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPA Library — Tải IPA Mod cho iOS | NekosofTech</title>
-    <meta name="description" content="Tải xuống các file IPA mod chất lượng cao cho iOS. AoV Loader — công cụ cài đặt mod cho Liên Quân Mobile. Cung cấp bởi H.DUN9 & NekosofTech.">
-    <meta name="keywords" content="IPA download, iOS mod, AoV Loader, Liên Quân Mobile, Arena of Valor, sideload, TrollStore, H.DUN9, NekosofTech">
+    <title>IPA Library | NekosofTech</title>
+    <meta name="description" content="Download premium IPA apps for iOS. Browse and install modded applications from NekosofTech.">
+    <meta name="keywords" content="IPA download, iOS mod, AoV Loader, Arena of Valor, sideload, TrollStore, H.DUN9, NekosofTech">
     <meta name="author" content="H.DUN9">
     <!-- Open Graph SEO -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nekosoftech.github.io/repo/ipa/">
     <meta property="og:title" content="IPA Library — NekosofTech">
-    <meta property="og:description" content="Tải xuống các file IPA mod chất lượng cao cho iOS. AoV Loader — công cụ cài đặt mod cho Liên Quân Mobile.">
+    <meta property="og:description" content="Download premium IPA apps for iOS from NekosofTech.">
     <meta property="og:image" content="https://nekosoftech.github.io/repo/ipa/aov-loader/logo.jpg">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="1024">
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://nekosoftech.github.io/repo/ipa/">
     <meta name="twitter:title" content="IPA Library — NekosofTech">
-    <meta name="twitter:description" content="Tải xuống các file IPA mod chất lượng cao cho iOS. AoV Loader — công cụ cài đặt mod cho Liên Quân Mobile.">
+    <meta name="twitter:description" content="Download premium IPA apps for iOS from NekosofTech.">
     <meta name="twitter:image" content="https://nekosoftech.github.io/repo/ipa/aov-loader/logo.jpg">
     <link rel="icon" type="image/png" href="../logo/nekosoftech_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -269,10 +269,11 @@
             flex-shrink: 0;
         }
 
-        /* DETAIL VIEW */
+        /* VIEWS */
         .view { display: none; animation: fadeIn 0.4s ease-out; }
         .view.active { display: block; }
 
+        /* DETAIL VIEW */
         .detail-card {
             background: var(--surface-color);
             border-radius: 24px;
@@ -528,13 +529,13 @@
                 </div>
                 <h1>NekosofTech</h1>
             </a>
-            <p class="subtitle">Tải xuống các ứng dụng IPA mod chất lượng cao dành cho thiết bị iOS của bạn.</p>
+            <p class="subtitle">Browse and download IPA applications for your iOS device.</p>
         </div>
 
         <!-- SEARCH BAR -->
         <div class="search-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-            <input type="text" class="search-input" id="search-input" placeholder="Tìm kiếm IPA..." autocomplete="off">
+            <input type="text" class="search-input" id="search-input" placeholder="Search IPA..." autocomplete="off">
         </div>
 
         <!-- LIST VIEW -->
@@ -542,21 +543,19 @@
             <div class="category-header">
                 <div class="category-header-text">
                     <h2>IPA Library</h2>
-                    <p>Tất cả file IPA có sẵn để tải xuống</p>
+                    <p>All available IPA downloads</p>
                 </div>
                 <span id="ipa-count" style="font-size:0.9rem; color:var(--text-muted);"></span>
             </div>
             <div class="packages-grid" id="ipa-grid">
-                <div class="no-results">Đang tải danh sách IPA...</div>
+                <div class="no-results">Loading...</div>
             </div>
         </div>
 
         <!-- DETAIL VIEW -->
         <div id="view-detail" class="view">
-            <a class="back-nav" id="back-btn" href="#">← Quay lại danh sách</a>
-            <div class="detail-card" id="detail-card">
-                <!-- filled by JS -->
-            </div>
+            <a class="back-nav" id="back-btn" href="#">← Back to Library</a>
+            <div class="detail-card" id="detail-card"></div>
         </div>
 
     </div>
@@ -582,8 +581,13 @@
     </footer>
 
     <script>
-        // IPA folders list — add new IPA folder names here
+        // IPA registry — add new IPA folder names here
         const ipaFolders = ['aov-loader'];
+
+        // Known file info per folder (since GitHub Pages can't list directories)
+        const ipaFiles = {
+            'aov-loader': { fileName: 'AoV-Loader-H.DUN9-1.0-7.tipa', fileSize: 5827010 }
+        };
 
         let allApps = [];
 
@@ -593,6 +597,7 @@
             return bytes + ' B';
         }
 
+        // Card in list — shows info.name and info.shortDescription from json
         function createIpaCard(app) {
             return `
                 <a href="#app=${app.folder}" class="package-card">
@@ -612,27 +617,30 @@
             const grid = document.getElementById('ipa-grid');
             const count = document.getElementById('ipa-count');
             if (apps.length === 0) {
-                grid.innerHTML = '<div class="no-results">Không tìm thấy IPA nào.</div>';
+                grid.innerHTML = '<div class="no-results">No IPA found.</div>';
                 count.textContent = '';
                 return;
             }
-            count.textContent = apps.length + ' ứng dụng';
+            count.textContent = apps.length + (apps.length === 1 ? ' app' : ' apps');
             grid.innerHTML = apps.map(a => createIpaCard(a)).join('');
         }
 
+        // Detail view — all text comes from info.json fields
         function renderDetail(folder) {
             const app = allApps.find(a => a.folder === folder);
             if (!app) return;
             const info = app.info;
 
+            // Features from info.features[]
             let featuresHtml = '';
             if (info.features && info.features.length) {
                 featuresHtml = '<ul class="detail-features">' + info.features.map(f => `<li>${f}</li>`).join('') + '</ul>';
             }
 
+            // Changelog from info.changelog[]
             let changelogHtml = '';
             if (info.changelog && info.changelog.length) {
-                changelogHtml = '<div class="changelog-section"><h3>Lịch sử cập nhật</h3>';
+                changelogHtml = '<div class="changelog-section"><h3>Changelog</h3>';
                 for (const entry of info.changelog) {
                     changelogHtml += `
                         <div class="changelog-entry">
@@ -643,6 +651,7 @@
                 changelogHtml += '</div>';
             }
 
+            // Socials from info.socials
             let socialsHtml = '';
             if (info.socials) {
                 socialsHtml = '<div class="social-row">';
@@ -659,6 +668,7 @@
                 socialsHtml += '</div>';
             }
 
+            // All text below comes from info.json: name, version, developer, localizedDescription, features, changelog, socials
             document.getElementById('detail-card').innerHTML = `
                 <div class="detail-header">
                     <div class="pkg-icon" style="flex-shrink:0;"><img src="${folder}/logo.jpg" alt="${info.name}" onerror="this.src='../logo/CydiaIcon.png';" style="width:100%;height:100%;object-fit:cover;"></div>
@@ -671,7 +681,7 @@
                 ${featuresHtml}
                 <a href="${folder}/${app.fileName}" class="download-btn" download>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                    Tải xuống IPA
+                    Download IPA
                 </a>
                 <div class="file-size-info">${app.fileName} — ${formatFileSize(app.fileSize)}</div>
                 ${changelogHtml}
@@ -699,10 +709,7 @@
         let searchTimeout = null;
         function handleSearch(query) {
             query = query.trim().toLowerCase();
-            if (!query) {
-                renderList(allApps);
-                return;
-            }
+            if (!query) { renderList(allApps); return; }
             const filtered = allApps.filter(a =>
                 a.info.name.toLowerCase().includes(query) ||
                 a.info.shortDescription.toLowerCase().includes(query)
@@ -710,26 +717,18 @@
             renderList(filtered);
         }
 
-        // Hard-coded IPA data to avoid dynamic directory listing issues on GitHub Pages
-        const ipaData = {
-            'aov-loader': {
-                fileName: 'AoV-Loader-H.DUN9-1.0-7.tipa',
-                fileSize: 5827010
-            }
-        };
-
         async function init() {
             for (const folder of ipaFolders) {
                 try {
                     const res = await fetch(`${folder}/info.json`);
                     if (!res.ok) continue;
                     const info = await res.json();
-                    const data = ipaData[folder] || {};
+                    const fileData = ipaFiles[folder] || {};
                     allApps.push({
                         folder,
                         info,
-                        fileName: data.fileName || 'app.ipa',
-                        fileSize: data.fileSize || 0
+                        fileName: fileData.fileName || 'app.ipa',
+                        fileSize: fileData.fileSize || 0
                     });
                 } catch (e) {
                     console.warn(`Failed loading ${folder}/info.json`, e);
@@ -740,12 +739,10 @@
             handleRouting();
             window.addEventListener('hashchange', handleRouting);
 
-            const searchInput = document.getElementById('search-input');
-            searchInput.addEventListener('input', () => {
+            document.getElementById('search-input').addEventListener('input', function() {
                 clearTimeout(searchTimeout);
-                // Only search in list view
                 if (!window.location.hash.startsWith('#app=')) {
-                    searchTimeout = setTimeout(() => handleSearch(searchInput.value), 200);
+                    searchTimeout = setTimeout(() => handleSearch(this.value), 200);
                 }
             });
         }
