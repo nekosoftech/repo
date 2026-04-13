@@ -1,0 +1,12 @@
+<xml>
+    <name>VirtualCam</name>
+    <description>Virtual camera tweak - replace camera feed with photos/videos.</description>
+    <changelog>Initial Release.</changelog>
+    <links>
+        <link>
+            <name>Source Code</name>
+            <url>https://github.com/nekosoftech/repo</url>
+            <iconclass>fa fa-github</iconclass>
+        </link>
+    </links>
+</xml>

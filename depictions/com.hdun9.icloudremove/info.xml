@@ -1,0 +1,12 @@
+<xml>
+    <name>iCloudRemove</name>
+    <description>Bypass iCloud activation lock (educational).</description>
+    <changelog>Initial Release.</changelog>
+    <links>
+        <link>
+            <name>Source Code</name>
+            <url>https://github.com/nekosoftech/repo</url>
+            <iconclass>fa fa-github</iconclass>
+        </link>
+    </links>
+</xml>

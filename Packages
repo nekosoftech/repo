@@ -1,0 +1,80 @@
+Package: com.hdun9.camaction
+Version: 2.2.0-1+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 252
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader
+Filename: ./debs/com.hdun9.camaction_2.2.0-1+debug_iphoneos-arm64.deb
+Size: 11590
+MD5sum: 32669f393fb033a776bf9e49e5393667
+SHA1: c6eb701af381f037ef52c38876cbf8220ce6a551
+SHA256: a27ed81fbbb938c0ec97a0ea4050977a87f0d5d9651bff07d9283cb26068fe12
+Section: Tweaks
+Description: Use volume buttons to control camera zoom in the native Camera app.
+Author: H.DUN9
+Name: CamAction
+
+Package: com.hdun9.homeaction
+Version: 1.0.2-4+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 248
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader
+Filename: ./debs/com.hdun9.homeaction_1.0.2-4+debug_iphoneos-arm64.deb
+Size: 9188
+MD5sum: b56db3b1ce519e48a1312a089010405e
+SHA1: ae01a46706700a665b80b0c925b067bbd2eb247d
+SHA256: 7c272807e5a9b7fd4c10da2c30658c545e63438dad807bbe5059bb20591541ac
+Section: Tweaks
+Description: Hold Volume Down for 2s to trigger custom actions. Choose Silent Mode, DND, Flashlight, Voice Memo, or Magnifier.
+Author: H.DUN9
+Name: Home Action
+
+Package: com.hdun9.icloudremove
+Version: 1.1.1
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 176
+Depends: firmware (>= 15.0), preferenceloader
+Filename: ./debs/com.hdun9.icloudremove_1.1.1_iphoneos-arm64.deb
+Size: 7756
+MD5sum: b187f5c92199219d3fb79f5689a16a05
+SHA1: 3447a71bc214112d413d7bc0a62c844aa9565853
+SHA256: 7240b8694a2a64240c82f2cdcacd6820d47ae6f372a510f22f0418ce7b42b25c
+Section: Tweaks
+Description: iCloud removal tool for testing purposes. Developer: H.DUN9 | Telegram: @Workaholicsheeet
+Author: H.DUN9
+Name: iCloud Remove by H.DUN9
+
+Package: com.hdun9.privacydisplay
+Version: 1.0.0-4+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 412
+Depends: mobilesubstrate, firmware (>= 14.0), preferenceloader
+Filename: ./debs/com.hdun9.privacydisplay_1.0.0-4-release_iphoneos-arm64.deb
+Size: 24668
+MD5sum: bde9f6466bf35efefc666b0613e4464f
+SHA1: bec191a0b9f2a706b9cc5a90baee867b79003980
+SHA256: ce2b8051d2b0fb6e030b4a594d7d77250a064dc2f9bcdd42d9f0840e9509bc92
+Section: Tweaks
+Description: Automatically hides screen content when device is tilted. Uses gyroscope roll detection with adjustable angle range.
+Author: H.DUN9
+Name: Privacy Display
+
+Package: com.hdun9.virtualcam
+Version: 1.0.0-15+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 436
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
+Filename: ./debs/com.hdun9.virtualcam_1.0.0-15+debug_iphoneos-arm64.deb
+Size: 121746
+MD5sum: 21e8133823d630248d9aedde89391a93
+SHA1: 6833c43d637e418307b20491dee09ad74d2fea61
+SHA256: def4302448fc31322c1e1b6027f7ffc5cd9480d4b5869110261854da534cb2c4
+Section: Tweaks
+Description: Virtual camera tweak - replace camera feed with photos/videos from album. Triple-press volume up to activate.
+Author: H.DUN9
+Name: VirtualCam
+
