@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H.DUN9 IPA Library - Tải xuống các IPA ứng dụng và trò chơi mod cho iOS. Nổi bật: AoV Loader (Liên Quân Mobile).">
+    <meta name="keywords" content="IPA, iOS, Sideload, Tweak, Mod, AoV Loader, Liên Quân Mobile, H.DUN9, TrollStore">
+    <meta name="author" content="H.DUN9">
+    <title>IPA Library | Tải xuống IPA Mod cho iOS by H.DUN9</title>
+
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="H.DUN9 IPA Library">
+    <meta property="og:description" content="Thư viện cung cấp các IPA ứng dụng và trò chơi đã được mod cho iOS. Tải ngay AoV Loader cho Liên Quân Mobile.">
+    <meta property="og:image" content="https://nekosoftech.github.io/repo/ipa/aov-loader/logo.jpg">
+    <meta property="og:url" content="https://nekosoftech.github.io/repo/ipa/">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --primary-color: #3b82f6;
+            --primary-hover: #2563eb;
+            --glass-bg: rgba(15, 23, 42, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                              radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Navbar */
+        nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            flex: 1;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .header-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Grid */
+        .ipa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-right: 1.25rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .app-info {
+            flex: 1;
+        }
+
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
+
+        .app-version {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .app-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        
+        .app-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .app-features li {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .app-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+        }
+
+        .download-btn {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-hover);
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">H.DUN9</div>
+    </nav>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>IPA Library</h1>
+            <p class="header-desc">Khám phá và tải xuống các ứng dụng, công cụ mod .ipa chất lượng cao dành cho thiết bị iOS của bạn.</p>
+        </div>
+
+        <div class="ipa-grid">
+            <!-- AoV Loader Card -->
+            <div class="card">
+                <div class="card-header">
+                    <img src="aov-loader/logo.jpg" alt="AoV Loader Logo" class="app-icon" loading="lazy">
+                    <div class="app-info">
+                        <h2 class="app-title">AoV Loader</h2>
+                        <span class="app-version">v1.0-7</span>
+                    </div>
+                </div>
+                <p class="app-desc">Công cụ cài đặt mod chuyên nghiệp dành cho Liên Quân Mobile. Quản lý mod mượt mà với tính bảo mật cao.</p>
+                
+                <ul class="app-features">
+                    <li>Cài đặt & quản lý mod dễ dàng</li>
+                    <li>Gỡ bỏ tất cả mod với một chạm</li>
+                    <li>Giao diện hiện đại, thân thiện</li>
+                </ul>
+
+                <a href="aov-loader/AoV-Loader-H.DUN9-1.0-7.tipa" class="download-btn" download>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Tải xuống .ipa
+                </a>
+            </div>
+            
+            <!-- More cards can be added here in the future -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 H.DUN9. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
