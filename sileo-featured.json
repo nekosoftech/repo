@@ -26,12 +26,6 @@
             "title": "iCloudRemove",
             "package": "com.hdun9.icloudremove",
             "hideShadow": false
-        },
-        {
-            "url": "https://nekosoftech.github.io/repo/depictions//banner.png",
-            "title": "",
-            "package": "",
-            "hideShadow": false
         }
     ]
 }
