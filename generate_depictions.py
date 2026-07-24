@@ -5,7 +5,8 @@ packages = {
     "com.hdun9.camaction": "CamAction",
     "com.hdun9.homeaction": "HomeAction",
     "com.hdun9.icloudremove": "iCloudRemove",
-    "com.hdun9.privacydisplay": "PrivacyDisplay"
+    "com.hdun9.privacydisplay": "PrivacyDisplay",
+    "com.huudung.liquiddynamicisland": "Liquid Dynamic Island"
 }
 
 for pkg_id, pkg_name in packages.items():
