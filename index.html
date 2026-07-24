@@ -980,7 +980,7 @@
             return `
                 <a href="#package=${pkg.Package}" class="package-card">
                     <div class="pkg-info">
-                        <div class="pkg-icon"><img src="${iconUrl}" alt="${pkg.Name} icon" onerror="this.src='logo/CydiaIcon.png';"></div>
+                        <div class="pkg-icon"><img src="${iconUrl}" alt="${pkg.Name} icon" onerror="const svgUrl = '${repoUrl}/depictions/${pkg.Package}/icon.svg'; if(this.src !== svgUrl) { this.src = svgUrl; } else { this.src='logo/CydiaIcon.png'; }"></div>
                         <div class="pkg-details">
                             <h3>${pkg.Name}</h3>
                             <p>${pkg.Description ? pkg.Description.split('\\n')[0] : pkg.Package}</p>
@@ -1139,6 +1139,13 @@
                                     <div class="depiction-table-title">${view.title}</div>
                                     <div class="depiction-table-text">${view.text}</div>
                                  </div>`;
+                    } else if (view.class === 'DepictionScreenshotsView') {
+                        let screenshotsHtml = '<div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:12px; margin: 16px 0;">';
+                        for (const screenshot of view.screenshots) {
+                            screenshotsHtml += `<img src="${screenshot.url}" alt="${screenshot.accessibilityText || 'Screenshot'}" style="height: 346px; border-radius: 12px; border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm); flex-shrink: 0;">`;
+                        }
+                        screenshotsHtml += '</div>';
+                        html += screenshotsHtml;
                     }
                 }
                 container.innerHTML = html;
@@ -1158,7 +1165,7 @@
 
             document.getElementById('detail-card').innerHTML = `
                 <div class="detail-header">
-                    <div class="pkg-icon" style="flex-shrink:0; border-radius: 20px; overflow:hidden; border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm);"><img src="${iconUrl}" alt="${pkg.Name} icon" onerror="this.src='logo/CydiaIcon.png';" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="pkg-icon" style="flex-shrink:0; border-radius: 20px; overflow:hidden; border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm);"><img src="${iconUrl}" alt="${pkg.Name} icon" onerror="const svgUrl = '${repoUrl}/depictions/${pkg.Package}/icon.svg'; if(this.src !== svgUrl) { this.src = svgUrl; } else { this.src='logo/CydiaIcon.png'; }" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="detail-info">
                         <h2>${pkg.Name}</h2>
                         <div class="meta">v${pkg.Version} &bull; ${pkg.Author || pkg.Maintainer || 'NekosofTech'}</div>
