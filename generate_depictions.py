@@ -53,7 +53,7 @@ for pkg_id, pkg_name in packages.items():
         },
         {
             "class": "DepictionMarkdownView",
-            "markdown": "- Fully optimized for iOS 16 & 17 Rootless.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
+            "markdown": "- Fully optimized for iOS 26 & 27 Rootless.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
             "useSpacing": True
         },
         {
@@ -76,7 +76,7 @@ for pkg_id, pkg_name in packages.items():
         {
             "class": "DepictionTableTextView",
             "title": "Compatibility",
-            "text": "iOS 16.0 - 17.x (Rootless)"
+            "text": "iOS 26.0 - 27.x (Rootless)"
         }
     ])
 
