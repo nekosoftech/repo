@@ -10,6 +10,76 @@ packages = {
 }
 
 for pkg_id, pkg_name in packages.items():
+    # Gather screenshots dynamically
+    screenshots = []
+    pkg_dir = f"depictions/{pkg_id}"
+    if os.path.exists(pkg_dir):
+        for file in sorted(os.listdir(pkg_dir)):
+            if file.startswith("screenshot") and file.endswith((".png", ".jpg", ".jpeg")):
+                screenshots.append({
+                    "url": f"https://nekosoftech.github.io/repo/depictions/{pkg_id}/{file}",
+                    "accessibilityText": file
+                })
+
+    details_views = [
+        {
+            "class": "DepictionMarkdownView",
+            "markdown": f"### Welcome to {pkg_name}\n\nExperience a new level of customization with {pkg_name}. This tweak is designed to provide you with seamless and powerful enhancements for your iOS device.",
+            "useSpacing": True
+        },
+        {
+            "class": "DepictionSpacerView",
+            "spacing": 16
+        }
+    ]
+
+    if screenshots:
+        details_views.append({
+            "class": "DepictionScreenshotsView",
+            "itemCornerRadius": 10,
+            "itemSize": "{160, 346.5}",
+            "screenshots": screenshots
+        })
+        details_views.append({
+            "class": "DepictionSpacerView",
+            "spacing": 16
+        })
+
+    details_views.extend([
+        {
+            "class": "DepictionHeaderView",
+            "title": "Features",
+            "useBoldText": True
+        },
+        {
+            "class": "DepictionMarkdownView",
+            "markdown": "- Fully optimized for iOS 16 & 17 Rootless.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
+            "useSpacing": True
+        },
+        {
+            "class": "DepictionSpacerView",
+            "spacing": 16
+        },
+        {
+            "class": "DepictionSeparatorView"
+        },
+        {
+            "class": "DepictionHeaderView",
+            "title": "Information",
+            "useBoldText": True
+        },
+        {
+            "class": "DepictionTableTextView",
+            "title": "Developer",
+            "text": "H.DUN9"
+        },
+        {
+            "class": "DepictionTableTextView",
+            "title": "Compatibility",
+            "text": "iOS 16.0 - 17.x (Rootless)"
+        }
+    ])
+
     depiction = {
         "minVersion": "0.1",
         "class": "DepictionTabView",
@@ -19,49 +89,7 @@ for pkg_id, pkg_name in packages.items():
             {
                 "tabname": "Details",
                 "class": "DepictionStackView",
-                "views": [
-                    {
-                        "class": "DepictionMarkdownView",
-                        "markdown": f"### Welcome to {pkg_name}\n\nExperience a new level of customization with {pkg_name}. This tweak is designed to provide you with seamless and powerful enhancements for your iOS device.",
-                        "useSpacing": True
-                    },
-                    {
-                        "class": "DepictionSpacerView",
-                        "spacing": 16
-                    },
-                    {
-                        "class": "DepictionHeaderView",
-                        "title": "Features",
-                        "useBoldText": True
-                    },
-                    {
-                        "class": "DepictionMarkdownView",
-                        "markdown": "- Fully optimized for iOS 15 & 16.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
-                        "useSpacing": True
-                    },
-                    {
-                        "class": "DepictionSpacerView",
-                        "spacing": 16
-                    },
-                    {
-                        "class": "DepictionSeparatorView"
-                    },
-                    {
-                        "class": "DepictionHeaderView",
-                        "title": "Information",
-                        "useBoldText": True
-                    },
-                    {
-                        "class": "DepictionTableTextView",
-                        "title": "Developer",
-                        "text": "H.DUN9"
-                    },
-                    {
-                        "class": "DepictionTableTextView",
-                        "title": "Compatibility",
-                        "text": "iOS 14.0 - 16.x"
-                    }
-                ]
+                "views": details_views
             },
             {
                 "tabname": "Changelog",

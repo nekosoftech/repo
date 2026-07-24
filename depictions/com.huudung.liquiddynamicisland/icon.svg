@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071224"/>
+      <stop offset="0.52" stop-color="#225ba3"/>
+      <stop offset="1" stop-color="#712f8e"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".34"/>
+      <stop offset=".42" stop-color="#bde6ff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#050912" stop-opacity=".5"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-40%" width="160%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="28"/>
+      <feOffset dy="24"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .46 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <circle cx="820" cy="190" r="260" fill="#8bd9ff" opacity=".12"/>
+  <circle cx="150" cy="850" r="330" fill="#be67ff" opacity=".12"/>
+  <g filter="url(#shadow)">
+    <rect x="126" y="382" width="772" height="260" rx="130" fill="#02040a" opacity=".58"/>
+    <rect x="133" y="389" width="758" height="246" rx="123" fill="url(#glass)"
+          stroke="#ffffff" stroke-opacity=".38" stroke-width="8"/>
+    <ellipse cx="362" cy="430" rx="175" ry="38" fill="#ffffff" opacity=".13"
+             transform="rotate(-8 362 430)"/>
+    <circle cx="230" cy="512" r="34" fill="#7ee4ff"/>
+    <rect x="300" y="485" width="284" height="54" rx="27" fill="#ffffff" opacity=".9"/>
+    <rect x="694" y="452" width="24" height="120" rx="12" fill="#d064ff"/>
+    <rect x="738" y="420" width="24" height="184" rx="12" fill="#ff5ca8"/>
+    <rect x="782" y="462" width="24" height="100" rx="12" fill="#8f8bff"/>
+  </g>
+</svg>
