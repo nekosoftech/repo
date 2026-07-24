@@ -18,6 +18,25 @@
                     "spacing": 16
                 },
                 {
+                    "class": "DepictionScreenshotsView",
+                    "itemCornerRadius": 10,
+                    "itemSize": "{160, 346.5}",
+                    "screenshots": [
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/screenshot1.png",
+                            "accessibilityText": "screenshot1.png"
+                        },
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/screenshot2.png",
+                            "accessibilityText": "screenshot2.png"
+                        }
+                    ]
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
                     "class": "DepictionHeaderView",
                     "title": "Features",
                     "useBoldText": true
