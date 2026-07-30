@@ -64,7 +64,7 @@ PACKAGES_META = {
         "name": "Liquid Island",
         "description": "Native Liquid Glass styling and a settings app for Dynamic Island.",
         "detailed_description": "Liquid Island brings sleek glassmorphism aesthetic and dynamic fluid animations to your Dynamic Island on iOS. Features a full native preferences app to customize island styles, colors, and layout effects.",
-        "compatibility": "iOS 16.0 - 17.x (Rootless)",
+        "compatibility": "iOS 26.x - 27.x (Rootless)",
         "min_ios": "16.0",
         "version": "0.1.0-20+debug",
         "developer": "DAN9",
