@@ -147,8 +147,29 @@
         .screenshots-grid { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; margin-top: 12px; }
         .screenshots-grid img { height: 340px; border-radius: 12px; border: 1px solid var(--surface-border); flex-shrink: 0; }
         
-        .footer { margin-top: auto; padding: 48px 24px 32px; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
-        .footer a { color: var(--primary-color); font-weight: 600; }
+        /* FOOTER */
+        .footer { margin-top: auto; padding: 48px 24px 32px; text-align: center; width: 100%; max-width: 800px; }
+        .footer-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--primary-color), #5856d6); border-radius: 2px; margin: 0 auto 24px; }
+        .footer-heading { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px; }
+        .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+        .social-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 14px; font-size: 0.9rem; font-weight: 600; color: var(--text-main); background: var(--surface-color); border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: pointer; }
+        .social-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .social-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+        .social-btn.telegram:hover { border-color: #0088cc; color: #0088cc; }
+        .social-btn.twitter:hover { border-color: #1d9bf0; color: #1d9bf0; }
+        .social-btn.github:hover { border-color: #333; color: #333; }
+        .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+        .footer-copy a { color: var(--primary-color); font-weight: 500; }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            .card { padding: 20px; border-radius: 20px; }
+            .pkg-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .btn-grid { flex-direction: column; align-items: stretch; }
+            .btn-action { justify-content: center; width: 100%; }
+            .social-links { flex-direction: column; align-items: stretch; }
+            .social-btn { justify-content: center; }
+        }
     </style>
 </head>
 <body>
