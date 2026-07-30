@@ -202,32 +202,42 @@ def generate_static_package_pages():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{name} — iOS Tweak | NekosofTech</title>
+    <title>{name} — Free iOS Tweak | NekosofTech</title>
     <meta name="description" content="{description}">
     <meta name="keywords" content="{name}, {pkg_id}, iOS tweak, jailbreak, Sileo, Zebra, Cydia, NekosofTech, DAN9">
     <meta name="author" content="{developer}">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="application-name" content="NekosofTech">
+    <meta name="apple-mobile-web-app-title" content="NekosofTech">
     <link rel="canonical" href="{page_url}">
     
     <!-- Open Graph SEO -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{page_url}">
-    <meta property="og:title" content="{name} — iOS Tweak">
+    <meta property="og:title" content="{name} — Free iOS Tweak">
     <meta property="og:description" content="{description}">
     <meta property="og:image" content="{banner_url}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{name} iOS Tweak Banner">
     <meta property="og:site_name" content="NekosofTech">
+    <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card SEO -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{page_url}">
-    <meta name="twitter:title" content="{name} — iOS Tweak">
+    <meta name="twitter:title" content="{name} — Free iOS Tweak">
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="{banner_url}">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48x48.png">
     <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Structured Data (JSON-LD) -->
@@ -248,7 +258,38 @@ def generate_static_package_pages():
         "@type": "Person",
         "name": "{developer}"
       }},
+      "publisher": {{
+        "@type": "Organization",
+        "name": "NekosofTech",
+        "url": "https://nekosoftech.github.io/repo/"
+      }},
       "image": "{icon_url}"
+    }}
+    </script>
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "NekosofTech Repo",
+          "item": "https://nekosoftech.github.io/repo/"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tweaks",
+          "item": "https://nekosoftech.github.io/repo/"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{name}",
+          "item": "{page_url}"
+        }}
+      ]
     }}
     </script>
 
