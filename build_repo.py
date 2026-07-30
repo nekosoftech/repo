@@ -311,7 +311,15 @@ def generate_static_package_pages():
         a {{ text-decoration: none; color: inherit; }}
         .container {{ max-width: 800px; width: 100%; padding: 40px 24px; }}
         
-        .header-nav {{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }}
+        /* HEADER SECTION */
+        .header {{ text-align: center; margin-bottom: 32px; }}
+        .logo-wrapper {{ width: 88px; height: 88px; margin: 0 auto 14px; border-radius: 22px; overflow: hidden; background: #ffffff; box-shadow: var(--shadow-sm); border: 1px solid var(--surface-border); transition: transform 0.2s; }}
+        .logo-wrapper:hover {{ transform: scale(1.04); }}
+        .logo {{ width: 100%; height: 100%; object-fit: cover; }}
+        .header-title {{ font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; color: var(--text-main); }}
+        .header-subtitle {{ color: var(--text-muted); font-size: 1rem; line-height: 1.5; max-width: 500px; margin: 0 auto; }}
+        
+        .header-nav {{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }}
         .back-nav {{ display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--primary-color); }}
         .back-nav:hover {{ text-decoration: underline; }}
         
@@ -373,6 +381,17 @@ def generate_static_package_pages():
 </head>
 <body>
     <div class="container">
+        <!-- HEADER (Shared with Home) -->
+        <div class="header">
+            <a href="../../" style="text-decoration: none; color: inherit; display: inline-block; cursor: pointer; border-radius: 20px;">
+                <div class="logo-wrapper">
+                    <img src="../../logo/nekosoftech_logo.png" alt="NekosofTech" class="logo" onerror="this.src='../../logo/CydiaIcon.png'">
+                </div>
+                <h2 class="header-title">NekosofTech</h2>
+            </a>
+            <p class="header-subtitle">Experience premium tweaks designed to enhance and customize your iOS device to its fullest potential.</p>
+        </div>
+
         <div class="header-nav">
             <a href="../../" class="back-nav">← Back to NekosofTech Repo</a>
         </div>
