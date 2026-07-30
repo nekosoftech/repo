@@ -2,7 +2,7 @@
     "minVersion": "0.1",
     "class": "DepictionTabView",
     "headerImage": "https://nekosoftech.github.io/repo/depictions/com.hdun9.homeaction/banner.png",
-    "tintColor": "#3498db",
+    "tintColor": "#007aff",
     "tabs": [
         {
             "tabname": "Details",
@@ -10,7 +10,7 @@
             "views": [
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### Welcome to HomeAction\n\nExperience a new level of customization with HomeAction. This tweak is designed to provide you with seamless and powerful enhancements for your iOS device.",
+                    "markdown": "### Welcome to Home Action\n\nHome Action allows you to assign custom system shortcuts to a 2-second press of the Volume Down button. Choose between toggling Silent Mode, Do Not Disturb, Flashlight, Voice Memo, or Magnifier.",
                     "useSpacing": true
                 },
                 {
@@ -24,7 +24,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "- Fully optimized for iOS 26 & 27 Rootless.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
+                    "markdown": "- Hold Volume Down for 2 seconds to activate custom action\n- Supports Silent Mode, DND, Flashlight, Voice Memos & Magnifier\n- Customizable settings panel via PreferenceLoader\n- Optimized for iOS 14.0 - 17.x",
                     "useSpacing": true
                 },
                 {
@@ -42,12 +42,12 @@
                 {
                     "class": "DepictionTableTextView",
                     "title": "Developer",
-                    "text": "H.DUN9"
+                    "text": "DAN9"
                 },
                 {
                     "class": "DepictionTableTextView",
                     "title": "Compatibility",
-                    "text": "iOS 26.0 - 27.x (Rootless)"
+                    "text": "iOS 14.0 - 17.x (Rootless / Rootful)"
                 }
             ]
         },
@@ -57,12 +57,12 @@
             "views": [
                 {
                     "class": "DepictionHeaderView",
-                    "title": "Version 1.0.0",
+                    "title": "Version 1.0.2-4+debug",
                     "useBoldText": true
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "- Initial release.\n- Added core functionality.\n- Bug fixes and stability improvements.",
+                    "markdown": "- Latest release.\n- Added core functionality & performance improvements.\n- Optimized for modern iOS jailbreaks.",
                     "useSpacing": true
                 }
             ]

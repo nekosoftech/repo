@@ -1,0 +1,60 @@
+Package: com.hdun9.camaction
+Name: CamAction
+Description: Use volume buttons to control camera zoom in the native Camera app.
+Maintainer: DAN9
+Author: DAN9
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader
+Architecture: iphoneos-arm64
+Version: 2.2.0-1+debug
+Installed-Size: 252
+Filename: debs/com.hdun9.camaction_2.2.0-1+debug_iphoneos-arm64.deb
+Size: 11590
+Depiction: https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/info.xml
+SileoDepiction: https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/sileo.json
+
+Package: com.hdun9.homeaction
+Name: Home Action
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader
+Description: Hold Volume Down for 2s to trigger custom actions.
+Maintainer: DAN9
+Author: DAN9
+Section: Tweaks
+Architecture: iphoneos-arm64
+Version: 1.0.2-4+debug
+Installed-Size: 248
+Filename: debs/com.hdun9.homeaction_1.0.2-4+debug_iphoneos-arm64.deb
+Size: 9188
+Depiction: https://nekosoftech.github.io/repo/depictions/com.hdun9.homeaction/info.xml
+SileoDepiction: https://nekosoftech.github.io/repo/depictions/com.hdun9.homeaction/sileo.json
+
+Package: com.hdun9.privacydisplay
+Name: Privacy Display
+Description: Automatically hides screen content when device is tilted using gyroscope roll detection.
+Maintainer: DAN9
+Author: DAN9
+Section: Tweaks
+Depends: mobilesubstrate, firmware (>= 14.0), preferenceloader
+Architecture: iphoneos-arm64
+Version: 1.0.0-4+debug
+Installed-Size: 412
+Filename: debs/com.hdun9.privacydisplay_1.0.0-4-release_iphoneos-arm64.deb
+Size: 24668
+Depiction: https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/info.xml
+SileoDepiction: https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/sileo.json
+
+Package: com.huudung.liquiddynamicisland
+Name: Liquid Island
+Depends: ellekit, firmware (>= 26.0)
+Description: Native Liquid Glass styling and a settings app for Dynamic Island.
+Maintainer: DAN9
+Author: DAN9
+Section: Tweaks
+Architecture: iphoneos-arm64
+Version: 0.1.0-20+debug
+Installed-Size: 548
+Filename: debs/com.huudung.liquiddynamicisland_0.1.0-20+debug_iphoneos-arm64.deb
+Size: 94732
+Depiction: https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/info.xml
+SileoDepiction: https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/sileo.json
+

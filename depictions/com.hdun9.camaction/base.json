@@ -2,7 +2,7 @@
     "minVersion": "0.1",
     "class": "DepictionTabView",
     "headerImage": "https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png",
-    "tintColor": "#3498db",
+    "tintColor": "#007aff",
     "tabs": [
         {
             "tabname": "Details",
@@ -10,7 +10,7 @@
             "views": [
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### Welcome to CamAction\n\nExperience a new level of customization with CamAction. This tweak is designed to provide you with seamless and powerful enhancements for your iOS device.",
+                    "markdown": "### Welcome to CamAction\n\nCamAction allows you to effortlessly control camera zoom using physical hardware volume buttons inside the native iOS Camera app. Easily adjust zoom levels while taking photos or recording video.",
                     "useSpacing": true
                 },
                 {
@@ -24,7 +24,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "- Fully optimized for iOS 26 & 27 Rootless.\n- Lightweight and battery-friendly.\n- Modern and native UI integration.\n- Regular updates and support.",
+                    "markdown": "- Use physical volume buttons for smooth camera zoom\n- Seamless native integration with iOS Camera app\n- Lightweight, fast, and battery friendly\n- Compatible with Rootless & Rootful jailbreaks",
                     "useSpacing": true
                 },
                 {
@@ -42,12 +42,12 @@
                 {
                     "class": "DepictionTableTextView",
                     "title": "Developer",
-                    "text": "H.DUN9"
+                    "text": "DAN9"
                 },
                 {
                     "class": "DepictionTableTextView",
                     "title": "Compatibility",
-                    "text": "iOS 26.0 - 27.x (Rootless)"
+                    "text": "iOS 14.0 - 17.x (Rootless / Rootful)"
                 }
             ]
         },
@@ -57,12 +57,12 @@
             "views": [
                 {
                     "class": "DepictionHeaderView",
-                    "title": "Version 1.0.0",
+                    "title": "Version 2.2.0-1+debug",
                     "useBoldText": true
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "- Initial release.\n- Added core functionality.\n- Bug fixes and stability improvements.",
+                    "markdown": "- Latest release.\n- Added core functionality & performance improvements.\n- Optimized for modern iOS jailbreaks.",
                     "useSpacing": true
                 }
             ]

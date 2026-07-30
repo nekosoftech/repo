@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamAction — iOS Tweak | NekosofTech</title>
+    <meta name="description" content="Use volume buttons to control camera zoom in the native Camera app.">
+    <meta name="keywords" content="CamAction, com.hdun9.camaction, iOS tweak, jailbreak, Sileo, Zebra, Cydia, NekosofTech, DAN9">
+    <meta name="author" content="DAN9">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nekosoftech.github.io/repo/package/com.hdun9.camaction/">
+    
+    <!-- Open Graph SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nekosoftech.github.io/repo/package/com.hdun9.camaction/">
+    <meta property="og:title" content="CamAction — iOS Tweak">
+    <meta property="og:description" content="Use volume buttons to control camera zoom in the native Camera app.">
+    <meta property="og:image" content="https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png">
+    <meta property="og:site_name" content="NekosofTech">
+    
+    <!-- Twitter Card SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://nekosoftech.github.io/repo/package/com.hdun9.camaction/">
+    <meta name="twitter:title" content="CamAction — iOS Tweak">
+    <meta name="twitter:description" content="Use volume buttons to control camera zoom in the native Camera app.">
+    <meta name="twitter:image" content="https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CamAction",
+      "operatingSystem": "iOS 14.0 - 17.x (Rootless / Rootful)",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Use volume buttons to control camera zoom in the native Camera app.",
+      "author": {
+        "@type": "Person",
+        "name": "DAN9"
+      },
+      "image": "https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/icon.png"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #f4f4f7;
+            --surface-color: #ffffff;
+            --surface-border: #eef0f2;
+            --primary-color: #007aff;
+            --text-main: #1c1c1e;
+            --text-muted: #8e8e93;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+            --tag-bg: #e6f2ff;
+            --tag-text: #007aff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; align-items: center; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 800px; width: 100%; padding: 40px 24px; }
+        
+        .header-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .back-nav { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--primary-color); }
+        .back-nav:hover { text-decoration: underline; }
+        
+        .card { background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 24px; padding: 32px; box-shadow: var(--shadow-sm); }
+        .banner { width: 100%; border-radius: 16px; overflow: hidden; margin-bottom: 24px; border: 1px solid var(--surface-border); aspect-ratio: 5 / 2; }
+        .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        .pkg-header { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+        .pkg-icon { width: 80px; height: 80px; border-radius: 20px; overflow: hidden; border: 1px solid var(--surface-border); flex-shrink: 0; background: #f4f4f5; }
+        .pkg-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .pkg-info { flex: 1; min-width: 200px; }
+        .pkg-info h1 { font-size: 2rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
+        .pkg-info .meta { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; }
+        
+        .btn-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .btn-action { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 14px; font-weight: 600; font-size: 0.95rem; background: var(--surface-color); border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-action:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-action img { width: 24px; height: 24px; border-radius: 6px; }
+        .btn-primary { background: var(--primary-color); color: #ffffff; border: none; }
+        
+        .section-title { font-size: 1.3rem; font-weight: 700; margin: 28px 0 12px; }
+        .description { line-height: 1.6; color: #374151; font-size: 1.05rem; }
+        
+        .features-list { margin-left: 20px; margin-top: 12px; color: #374151; line-height: 1.7; }
+        
+        .info-table { width: 100%; border-top: 1px solid var(--surface-border); margin-top: 28px; padding-top: 12px; }
+        .table-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--surface-border); font-size: 0.95rem; }
+        .table-row:last-child { border-bottom: none; }
+        .table-label { color: var(--text-muted); font-weight: 500; }
+        .table-value { font-weight: 600; color: var(--text-main); }
+        
+        .screenshots-grid { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; margin-top: 12px; }
+        .screenshots-grid img { height: 340px; border-radius: 12px; border: 1px solid var(--surface-border); flex-shrink: 0; }
+        
+        .footer { margin-top: auto; padding: 48px 24px 32px; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+        .footer a { color: var(--primary-color); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-nav">
+            <a href="../../" class="back-nav">← Back to NekosofTech Repo</a>
+        </div>
+        
+        <div class="card">
+            <div class="banner">
+                <img src="../../depictions/com.hdun9.camaction/banner.png" alt="CamAction banner" onerror="this.parentElement.style.display='none';">
+            </div>
+            
+            <div class="pkg-header">
+                <div class="pkg-icon">
+                    <img src="../../depictions/com.hdun9.camaction/icon.png" alt="CamAction icon" onerror="this.src='../../logo/CydiaIcon.png';">
+                </div>
+                <div class="pkg-info">
+                    <h1>CamAction</h1>
+                    <div class="meta">v2.2.0-1+debug &bull; DAN9</div>
+                    <div class="meta" style="margin-top:4px;">Compatibility: iOS 14.0 - 17.x (Rootless / Rootful)</div>
+                </div>
+                <div style="margin-left: auto;">
+                    <span style="background:var(--tag-bg); color:var(--tag-text); font-weight:700; padding:8px 18px; border-radius:12px; font-size:1rem;">FREE</span>
+                </div>
+            </div>
+            
+            <div class="btn-grid">
+                <a href="sileo://source/https://nekosoftech.github.io/repo" class="btn-action">
+                    <img src="../../logo/SileoIcon.png" alt="Sileo"> Add to Sileo
+                </a>
+                <a href="zbra://sources/add/https://nekosoftech.github.io/repo" class="btn-action">
+                    <img src="../../logo/ZebraIcon.png" alt="Zebra"> Add to Zebra
+                </a>
+                <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://nekosoftech.github.io/repo" class="btn-action">
+                    <img src="../../logo/CydiaIcon.png" alt="Cydia"> Add to Cydia
+                </a>
+                <a href="../../debs/com.hdun9.camaction_2.2.0-1+debug_iphoneos-arm64.deb" class="btn-action btn-primary" download>
+                    📥 Download .DEB
+                </a>
+            </div>
+            
+            <div class="section-title">About CamAction</div>
+            <div class="description">CamAction allows you to effortlessly control camera zoom using physical hardware volume buttons inside the native iOS Camera app. Easily adjust zoom levels while taking photos or recording video.</div>
+            
+            <div class="section-title">Features</div>
+            <ul class="features-list">
+                <li>Use physical volume buttons for smooth camera zoom</li>
+<li>Seamless native integration with iOS Camera app</li>
+<li>Lightweight, fast, and battery friendly</li>
+<li>Compatible with Rootless & Rootful jailbreaks</li>
+            </ul>
+            
+            
+            
+            <div class="info-table">
+                <div class="table-row">
+                    <div class="table-label">Developer</div>
+                    <div class="table-value">DAN9</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-label">Version</div>
+                    <div class="table-value">2.2.0-1+debug</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-label">Compatibility</div>
+                    <div class="table-value">iOS 14.0 - 17.x (Rootless / Rootful)</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-label">Bundle ID</div>
+                    <div class="table-value">com.hdun9.camaction</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-label">Section</div>
+                    <div class="table-value">Tweaks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2026 <a href="https://nekosoftech.com/" target="_blank" rel="noopener">NekosofTech</a>. Built by DAN9
+    </footer>
+</body>
+</html>

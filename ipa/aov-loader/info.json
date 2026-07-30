@@ -1,10 +1,10 @@
 {
-  "name": "AoV Loader - H.DUN9",
+  "name": "AoV Loader - DAN9",
   "bundleIdentifier": "com.hdun9.kgvn.loader",
   "version": "1.0-7",
   "build": "7",
-  "developer": "H.DUN9",
-  "author": "H.DUN9 (aka H.DAN9 / huudung038)",
+  "developer": "DAN9",
+  "author": "DAN9 (aka huudung038)",
   "shortDescription": "Tweak Injector for Liên Quân Mobile",
   "localizedDescription": "AoV Loader is a dedicated mod installer for Liên Quân Mobile (Arena of Valor). It allows you to easily inject modifications into the game with a clean and simple interface. Manage your game tweaks seamlessly and securely.",
   "features": [

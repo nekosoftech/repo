@@ -4,12 +4,6 @@
     "itemCornerRadius": 10,
     "banners": [
         {
-            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/banner.png",
-            "title": "PrivacyDisplay",
-            "package": "com.hdun9.privacydisplay",
-            "hideShadow": false
-        },
-        {
             "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png",
             "title": "CamAction",
             "package": "com.hdun9.camaction",
@@ -17,14 +11,20 @@
         },
         {
             "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.homeaction/banner.png",
-            "title": "HomeAction",
+            "title": "Home Action",
             "package": "com.hdun9.homeaction",
             "hideShadow": false
         },
         {
-            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.icloudremove/banner.png",
-            "title": "iCloudRemove",
-            "package": "com.hdun9.icloudremove",
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/banner.png",
+            "title": "Privacy Display",
+            "package": "com.hdun9.privacydisplay",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/banner.png",
+            "title": "Liquid Island",
+            "package": "com.huudung.liquiddynamicisland",
             "hideShadow": false
         }
     ]
