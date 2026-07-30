@@ -217,10 +217,12 @@ def generate_static_package_pages():
     <meta property="og:url" content="{page_url}">
     <meta property="og:title" content="{name} — Free iOS Tweak">
     <meta property="og:description" content="{description}">
-    <meta property="og:image" content="{banner_url}">
+    <meta property="og:image" content="{og_image_url}">
+    <meta property="og:image:secure_url" content="{og_image_url}">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="{name} iOS Tweak Banner">
+    <meta property="og:image:alt" content="{name} iOS Tweak Preview">
     <meta property="og:site_name" content="NekosofTech">
     <meta property="og:locale" content="en_US">
     
@@ -229,7 +231,7 @@ def generate_static_package_pages():
     <meta name="twitter:url" content="{page_url}">
     <meta name="twitter:title" content="{name} — Free iOS Tweak">
     <meta name="twitter:description" content="{description}">
-    <meta name="twitter:image" content="{banner_url}">
+    <meta name="twitter:image" content="{og_image_url}">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48x48.png">
@@ -521,6 +523,14 @@ def generate_static_package_pages():
         page_url = f"{REPO_URL}/package/{pkg_id}/"
         banner_url = f"{REPO_URL}/depictions/{pkg_id}/banner.png"
         icon_url = f"{REPO_URL}/depictions/{pkg_id}/icon.png"
+        og_image_url = f"{REPO_URL}/package/{pkg_id}/og.png"
+
+        # Generate custom 1200x630 solid OG preview image for messaging apps
+        try:
+            from generate_tweak_og import create_tweak_og_image
+            create_tweak_og_image(pkg_id, meta)
+        except Exception as e:
+            print(f"Warning: failed generating OG for {pkg_id}: {e}")
 
         html_content = html_template.format(
             name=meta["name"],
@@ -536,7 +546,8 @@ def generate_static_package_pages():
             screenshots_html=screenshots_html,
             page_url=page_url,
             banner_url=banner_url,
-            icon_url=icon_url
+            icon_url=icon_url,
+            og_image_url=og_image_url
         )
         
         with open(f"{out_dir}/index.html", "w") as f:
