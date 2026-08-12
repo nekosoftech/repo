@@ -101,13 +101,13 @@ PACKAGES_META = {
         "detailed_description": "Runtime for tweaks built using Orion and Swift. Required for modern Swift tweaks.",
         "compatibility": "iOS 14.0+ (Rootless)",
         "min_ios": "14.0",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "developer": "Theos Team",
         "section": "System",
         "features": [
             "Runtime for tweaks built using Orion and Swift"
         ],
-        "deb_file": "debs/dev.theos.orion14_1.0.2_iphoneos-arm64.deb"
+        "deb_file": "debs/dev.theos.orion14_1.0.3_iphoneos-arm64.deb"
     }
 }
 

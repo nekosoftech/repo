@@ -57,7 +57,7 @@
             "views": [
                 {
                     "class": "DepictionHeaderView",
-                    "title": "Version 1.0.2",
+                    "title": "Version 1.0.3",
                     "useBoldText": true
                 },
                 {
