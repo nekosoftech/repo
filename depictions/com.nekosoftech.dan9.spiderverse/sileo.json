@@ -70,7 +70,7 @@
                 {
                     "class": "DepictionTableTextView",
                     "title": "Compatibility",
-                    "text": "iOS 18.0+ (Rootless)"
+                    "text": "iOS 14.0+ (Rootless)"
                 }
             ]
         },
@@ -80,7 +80,7 @@
             "views": [
                 {
                     "class": "DepictionHeaderView",
-                    "title": "Version 1.0.7-8",
+                    "title": "Version 1.0.7-10",
                     "useBoldText": true
                 },
                 {

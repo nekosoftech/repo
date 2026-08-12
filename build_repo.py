@@ -81,9 +81,9 @@ PACKAGES_META = {
         "name": "Spider Verse",
         "description": "Bring the amazing Spider-Man aesthetic to your Lock Screen and Siri!",
         "detailed_description": "Spider Verse brings the amazing Spider-Man aesthetic to your Lock Screen and Siri! Customize your clock, add dynamic animated digits, change your status bar icons, and replace your Siri orb with custom Spider-Man themes.",
-        "compatibility": "iOS 18.0+ (Rootless)",
-        "min_ios": "18.0",
-        "version": "1.0.7-8",
+        "compatibility": "iOS 14.0+ (Rootless)",
+        "min_ios": "14.0",
+        "version": "1.0.7-10",
         "developer": "DAN9",
         "section": "Tweaks",
         "features": [
