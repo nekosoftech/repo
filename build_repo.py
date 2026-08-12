@@ -76,6 +76,25 @@ PACKAGES_META = {
             "Built with ElleKit for iOS 16.0+ Rootless jailbreaks"
         ],
         "deb_file": "debs/com.huudung.liquiddynamicisland_0.1.0-20+debug_iphoneos-arm64.deb"
+    },
+    "com.nekosoftech.dan9.spiderverse": {
+        "name": "Spider Verse",
+        "description": "Bring the amazing Spider-Man aesthetic to your Lock Screen and Siri!",
+        "detailed_description": "Spider Verse brings the amazing Spider-Man aesthetic to your Lock Screen and Siri! Customize your clock, add dynamic animated digits, change your status bar icons, and replace your Siri orb with custom Spider-Man themes.",
+        "compatibility": "iOS 18.0+ (Rootless)",
+        "min_ios": "18.0",
+        "version": "1.0.7-8",
+        "developer": "DAN9",
+        "section": "Tweaks",
+        "features": [
+            "Custom animated lock screen clock with Spider-Man themes",
+            "Replace Siri interface with Spider-Man icons and audio-responsive animations",
+            "Custom status bar icons (Wi-Fi, Cellular) & Lock icon styling",
+            "Quick Action toggles (Flashlight, Camera) replacement",
+            "Dynamic and Static modes",
+            "DRM protected via real-time tracking API"
+        ],
+        "deb_file": "debs/com.nekosoftech.dan9.spiderverse_1.0.7-8+debug_iphoneos-arm64.deb"
     }
 }
 

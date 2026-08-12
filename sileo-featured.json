@@ -26,6 +26,12 @@
             "title": "Liquid Island",
             "package": "com.huudung.liquiddynamicisland",
             "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/banner.png",
+            "title": "Spider Verse",
+            "package": "com.nekosoftech.dan9.spiderverse",
+            "hideShadow": false
         }
     ]
 }
