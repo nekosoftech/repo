@@ -91,8 +91,7 @@ PACKAGES_META = {
             "Replace Siri interface with Spider-Man icons and audio-responsive animations",
             "Custom status bar icons (Wi-Fi, Cellular) & Lock icon styling",
             "Quick Action toggles (Flashlight, Camera) replacement",
-            "Dynamic and Static modes",
-            "DRM protected via real-time tracking API"
+            "Dynamic and Static modes"
         ],
         "deb_file": "debs/com.nekosoftech.dan9.spiderverse_1.0.7-8+debug_iphoneos-arm64.deb"
     },

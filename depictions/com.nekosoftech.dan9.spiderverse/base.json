@@ -47,7 +47,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "- Custom animated lock screen clock with Spider-Man themes\n- Replace Siri interface with Spider-Man icons and audio-responsive animations\n- Custom status bar icons (Wi-Fi, Cellular) & Lock icon styling\n- Quick Action toggles (Flashlight, Camera) replacement\n- Dynamic and Static modes\n- DRM protected via real-time tracking API",
+                    "markdown": "- Custom animated lock screen clock with Spider-Man themes\n- Replace Siri interface with Spider-Man icons and audio-responsive animations\n- Custom status bar icons (Wi-Fi, Cellular) & Lock icon styling\n- Quick Action toggles (Flashlight, Camera) replacement\n- Dynamic and Static modes",
                     "useSpacing": true
                 },
                 {
