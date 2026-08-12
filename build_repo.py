@@ -95,6 +95,20 @@ PACKAGES_META = {
             "DRM protected via real-time tracking API"
         ],
         "deb_file": "debs/com.nekosoftech.dan9.spiderverse_1.0.7-8+debug_iphoneos-arm64.deb"
+    },
+    "dev.theos.orion14": {
+        "name": "Orion (iOS 14-26+)",
+        "description": "Runtime for tweaks built using Orion and Swift",
+        "detailed_description": "Runtime for tweaks built using Orion and Swift. Required for modern Swift tweaks.",
+        "compatibility": "iOS 14.0+ (Rootless)",
+        "min_ios": "14.0",
+        "version": "1.0.2",
+        "developer": "Theos Team",
+        "section": "System",
+        "features": [
+            "Runtime for tweaks built using Orion and Swift"
+        ],
+        "deb_file": "debs/dev.theos.orion14_1.0.2_iphoneos-arm64.deb"
     }
 }
 

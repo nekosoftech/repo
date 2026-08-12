@@ -32,6 +32,12 @@
             "title": "Spider Verse",
             "package": "com.nekosoftech.dan9.spiderverse",
             "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/dev.theos.orion14/banner.png",
+            "title": "Orion (iOS 14-26+)",
+            "package": "dev.theos.orion14",
+            "hideShadow": false
         }
     ]
 }

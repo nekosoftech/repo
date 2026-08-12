@@ -73,3 +73,20 @@ Size: 12329332
 Depiction: https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/info.xml
 SileoDepiction: https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/sileo.json
 
+Package: dev.theos.orion14
+Name: Orion (iOS 14-26+)
+Depends: firmware (>= 14.0), mobilesubstrate (>= 0.9.5000)
+Provides: dev.theos.orion (= 1.0.2)
+Description: Runtime for tweaks built using Orion and Swift
+Maintainer: Theos Team
+Author: Theos Team
+Section: System
+Tag: role::developer
+Architecture: iphoneos-arm64
+Version: 1.0.2
+Installed-Size: 484
+Filename: debs/dev.theos.orion14_1.0.2_iphoneos-arm64.deb
+Size: 93532
+Depiction: https://nekosoftech.github.io/repo/depictions/dev.theos.orion14/info.xml
+SileoDepiction: https://nekosoftech.github.io/repo/depictions/dev.theos.orion14/sileo.json
+
