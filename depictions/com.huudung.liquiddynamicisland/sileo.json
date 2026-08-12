@@ -1,0 +1,90 @@
+{
+    "minVersion": "0.1",
+    "class": "DepictionTabView",
+    "headerImage": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/banner.png",
+    "tintColor": "#007aff",
+    "tabs": [
+        {
+            "tabname": "Details",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### Welcome to Liquid Island\n\nLiquid Island brings sleek glassmorphism aesthetic and dynamic fluid animations to your Dynamic Island on iOS. Features a full native preferences app to customize island styles, colors, and layout effects.",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionScreenshotsView",
+                    "itemCornerRadius": 10,
+                    "itemSize": "{160, 346.5}",
+                    "screenshots": [
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/screenshot1.png",
+                            "accessibilityText": "Liquid Island Screenshot"
+                        },
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/screenshot2.png",
+                            "accessibilityText": "Liquid Island Screenshot"
+                        }
+                    ]
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Features",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Beautiful Liquid Glass visual styling for Dynamic Island\n- Dedicated native preferences app for custom colors & styling\n- Smooth spring physics animations\n- Built with ElleKit for iOS 16.0+ Rootless jailbreaks",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Information",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Developer",
+                    "text": "DAN9"
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Compatibility",
+                    "text": "iOS 26.x - 27.x (Rootless)"
+                }
+            ]
+        },
+        {
+            "tabname": "Changelog",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Version 0.1.0-20+debug",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Latest release.\n- Added core functionality & performance improvements.\n- Optimized for modern iOS jailbreaks.",
+                    "useSpacing": true
+                }
+            ]
+        }
+    ]
+}

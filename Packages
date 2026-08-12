@@ -1,0 +1,130 @@
+Package: com.hdun9.camaction
+Version: 2.2.0-1+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 252
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader
+Filename: ./debs/com.hdun9.camaction_2.2.0-1+debug_iphoneos-arm64.deb
+Size: 11590
+MD5sum: 32669f393fb033a776bf9e49e5393667
+SHA1: c6eb701af381f037ef52c38876cbf8220ce6a551
+SHA256: a27ed81fbbb938c0ec97a0ea4050977a87f0d5d9651bff07d9283cb26068fe12
+Section: Tweaks
+Description: Use volume buttons to control camera zoom in the native Camera app.
+Author: H.DUN9
+Name: CamAction
+
+Package: com.hdun9.homeaction
+Version: 1.0.2-4+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 248
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader
+Filename: ./debs/com.hdun9.homeaction_1.0.2-4+debug_iphoneos-arm64.deb
+Size: 9188
+MD5sum: b56db3b1ce519e48a1312a089010405e
+SHA1: ae01a46706700a665b80b0c925b067bbd2eb247d
+SHA256: 7c272807e5a9b7fd4c10da2c30658c545e63438dad807bbe5059bb20591541ac
+Section: Tweaks
+Description: Hold Volume Down for 2s to trigger custom actions. Choose Silent Mode, DND, Flashlight, Voice Memo, or Magnifier.
+Author: H.DUN9
+Name: Home Action
+
+Package: com.hdun9.privacydisplay
+Version: 1.0.0-4+debug
+Architecture: iphoneos-arm64
+Maintainer: H.DUN9
+Installed-Size: 412
+Depends: mobilesubstrate, firmware (>= 14.0), preferenceloader
+Filename: ./debs/com.hdun9.privacydisplay_1.0.0-4-release_iphoneos-arm64.deb
+Size: 24668
+MD5sum: bde9f6466bf35efefc666b0613e4464f
+SHA1: bec191a0b9f2a706b9cc5a90baee867b79003980
+SHA256: ce2b8051d2b0fb6e030b4a594d7d77250a064dc2f9bcdd42d9f0840e9509bc92
+Section: Tweaks
+Description: Automatically hides screen content when device is tilted. Uses gyroscope roll detection with adjustable angle range.
+Author: H.DUN9
+Name: Privacy Display
+
+Package: com.huudung.liquiddynamicisland
+Version: 0.1.0-20+debug
+Architecture: iphoneos-arm64
+Maintainer: DAN9 aka @Workaholicsheeet
+Installed-Size: 548
+Depends: ellekit, firmware (>= 26.0)
+Filename: ./debs/com.huudung.liquiddynamicisland_0.1.0-20+debug_iphoneos-arm64.deb
+Size: 94732
+MD5sum: ad44ec6722c79b6bda6a38e0bafb3d5c
+SHA1: 4b2adce7f854583947ceb8a25a03ba7c8f4d3741
+SHA256: 0f4bdc7c8d499df61645940f50cb7e422bdaedbca25f38807f56f0ec68c6f6ac
+Section: Tweaks
+Description: Native Liquid Glass styling and a settings app for Dynamic Island.
+Author: DAN9 aka @Workaholicsheeet
+Name: Liquid Island
+
+Package: com.nekosoftech.dan9.spiderverse
+Version: 1.0.7-10+debug
+Architecture: iphoneos-arm64
+Maintainer: HuuDung
+Installed-Size: 35708
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>= 1.0.0), firmware (>= 14.0), dev.theos.orion14
+Filename: ./debs/com.nekosoftech.dan9.spiderverse_1.0.7-10+debug_iphoneos-arm64.deb
+Size: 12329326
+MD5sum: dc00f7d0f67ed05146f7f8a3341cf50a
+SHA1: 9e127f213118a9a58b2c12bde3de6f52fefa0646
+SHA256: ba508466b29e7e8a837b1cb4820a4675bd67acb4b5be30e2621d7e454531349c
+Section: Tweaks
+Description: Spider-Verse themed lock screen customization tweak
+Author: HuuDung
+Name: Spider Verse
+
+Package: com.nekosoftech.dan9.spiderverse
+Version: 1.0.7-8+debug
+Architecture: iphoneos-arm64
+Maintainer: HuuDung
+Installed-Size: 35708
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>= 1.0.0), firmware (>= 14.0), dev.theos.orion14
+Filename: ./debs/com.nekosoftech.dan9.spiderverse_1.0.7-8+debug_iphoneos-arm64.deb
+Size: 12329332
+MD5sum: 6a60d5c06a273829f2d78d04b44332d4
+SHA1: a1dedb6fd643ef5978cf5dac7be3265c0ea01d27
+SHA256: 842f928f43780d5f99e21402db09b1278e84a0113097d6da5002090929984a37
+Section: Tweaks
+Description: Spider-Verse themed lock screen customization tweak
+Author: HuuDung
+Name: Spider Verse
+
+Package: com.nekosoftech.dan9.spiderverse
+Version: 1.0.7-9+debug
+Architecture: iphoneos-arm64
+Maintainer: HuuDung
+Installed-Size: 35708
+Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0), dev.theos.orion14
+Filename: ./debs/com.nekosoftech.dan9.spiderverse_1.0.7-9+debug_iphoneos-arm64.deb
+Size: 12329304
+MD5sum: 5a94ac589ae155235fca0ff8823c85eb
+SHA1: 4e7c78aa7f8836303432a56bfeab18cae33d537a
+SHA256: f636e82f028eca7c91638f83b2d1871530adf4fcb7bf7fd9d6fc880e6c1a5992
+Section: Tweaks
+Description: Spider-Verse themed lock screen customization tweak
+Author: HuuDung
+Name: Spider Verse
+
+Package: dev.theos.orion14
+Version: 1.0.3
+Architecture: iphoneos-arm64
+Maintainer: Theos Team <theos@kabiroberai.com>
+Installed-Size: 484
+Depends: firmware (>= 14.0), mobilesubstrate (>= 0.9.5000)
+Provides: dev.theos.orion (= 1.0.2)
+Filename: ./debs/dev.theos.orion14_1.0.3_iphoneos-arm64.deb
+Size: 93528
+MD5sum: 705844b8f11406a0f8d7b6519ff43fe2
+SHA1: 72aa0e8d0ee51989522d6e53230495da16af6dff
+SHA256: 41e80f63f404830f5af757db262884e3082b478786fe1f452e5480b59fad64e6
+Section: System
+Description: Runtime for tweaks built using Orion and Swift
+Tag: role::developer
+Author: Theos Team <theos@kabiroberai.com>
+Name: Orion (iOS 14-26+)
+

@@ -1,0 +1,94 @@
+{
+    "minVersion": "0.1",
+    "class": "DepictionTabView",
+    "headerImage": "https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/banner.png",
+    "tintColor": "#007aff",
+    "tabs": [
+        {
+            "tabname": "Details",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### Welcome to Spider Verse\n\nSpider Verse brings the amazing Spider-Man aesthetic to your Lock Screen and Siri! Customize your clock, add dynamic animated digits, change your status bar icons, and replace your Siri orb with custom Spider-Man themes.",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionScreenshotsView",
+                    "itemCornerRadius": 10,
+                    "itemSize": "{160, 346.5}",
+                    "screenshots": [
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/screenshot1.png",
+                            "accessibilityText": "Spider Verse Screenshot"
+                        },
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/screenshot2.png",
+                            "accessibilityText": "Spider Verse Screenshot"
+                        },
+                        {
+                            "url": "https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/screenshot3.png",
+                            "accessibilityText": "Spider Verse Screenshot"
+                        }
+                    ]
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Features",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Custom animated lock screen clock with Spider-Man themes\n- Replace Siri interface with Spider-Man icons and audio-responsive animations\n- Custom status bar icons (Wi-Fi, Cellular) & Lock icon styling\n- Quick Action toggles (Flashlight, Camera) replacement\n- Dynamic and Static modes",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Information",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Developer",
+                    "text": "DAN9"
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Compatibility",
+                    "text": "iOS 14.0+ (Rootless)"
+                }
+            ]
+        },
+        {
+            "tabname": "Changelog",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Version 1.0.7-10",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Latest release.\n- Added core functionality & performance improvements.\n- Optimized for modern iOS jailbreaks.",
+                    "useSpacing": true
+                }
+            ]
+        }
+    ]
+}

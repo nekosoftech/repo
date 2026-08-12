@@ -1,0 +1,43 @@
+{
+    "class": "FeaturedBannersView",
+    "itemSize": "{263, 148}",
+    "itemCornerRadius": 10,
+    "banners": [
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png",
+            "title": "CamAction",
+            "package": "com.hdun9.camaction",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.homeaction/banner.png",
+            "title": "Home Action",
+            "package": "com.hdun9.homeaction",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/banner.png",
+            "title": "Privacy Display",
+            "package": "com.hdun9.privacydisplay",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.huudung.liquiddynamicisland/banner.png",
+            "title": "Liquid Island",
+            "package": "com.huudung.liquiddynamicisland",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/com.nekosoftech.dan9.spiderverse/banner.png",
+            "title": "Spider Verse",
+            "package": "com.nekosoftech.dan9.spiderverse",
+            "hideShadow": false
+        },
+        {
+            "url": "https://nekosoftech.github.io/repo/depictions/dev.theos.orion14/banner.png",
+            "title": "Orion (iOS 14-26+)",
+            "package": "dev.theos.orion14",
+            "hideShadow": false
+        }
+    ]
+}

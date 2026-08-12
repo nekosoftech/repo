@@ -1,0 +1,71 @@
+{
+    "minVersion": "0.1",
+    "class": "DepictionTabView",
+    "headerImage": "https://nekosoftech.github.io/repo/depictions/com.hdun9.privacydisplay/banner.png",
+    "tintColor": "#007aff",
+    "tabs": [
+        {
+            "tabname": "Details",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### Welcome to Privacy Display\n\nPrivacy Display keeps your personal conversations and app content private in public places. Powered by real-time iPhone gyroscope roll detection, it automatically dims or hides your screen when your device is tilted past a customizable angle.",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Features",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Automatic screen dimming/hiding on device tilt\n- Real-time gyroscope angle sensitivity threshold adjustment\n- Protect sensitive messaging and bank apps in public\n- Smooth fade animations and zero background battery drain",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Information",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Developer",
+                    "text": "DAN9"
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Compatibility",
+                    "text": "iOS 14.0 - 17.x (Rootless / Rootful)"
+                }
+            ]
+        },
+        {
+            "tabname": "Changelog",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Version 1.0.0-4+debug",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Latest release.\n- Added core functionality & performance improvements.\n- Optimized for modern iOS jailbreaks.",
+                    "useSpacing": true
+                }
+            ]
+        }
+    ]
+}

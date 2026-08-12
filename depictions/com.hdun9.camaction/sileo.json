@@ -1,0 +1,71 @@
+{
+    "minVersion": "0.1",
+    "class": "DepictionTabView",
+    "headerImage": "https://nekosoftech.github.io/repo/depictions/com.hdun9.camaction/banner.png",
+    "tintColor": "#007aff",
+    "tabs": [
+        {
+            "tabname": "Details",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### Welcome to CamAction\n\nCamAction allows you to effortlessly control camera zoom using physical hardware volume buttons inside the native iOS Camera app. Easily adjust zoom levels while taking photos or recording video.",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Features",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Use physical volume buttons for smooth camera zoom\n- Seamless native integration with iOS Camera app\n- Lightweight, fast, and battery friendly\n- Compatible with Rootless & Rootful jailbreaks",
+                    "useSpacing": true
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 16
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Information",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Developer",
+                    "text": "DAN9"
+                },
+                {
+                    "class": "DepictionTableTextView",
+                    "title": "Compatibility",
+                    "text": "iOS 14.0 - 17.x (Rootless / Rootful)"
+                }
+            ]
+        },
+        {
+            "tabname": "Changelog",
+            "class": "DepictionStackView",
+            "views": [
+                {
+                    "class": "DepictionHeaderView",
+                    "title": "Version 2.2.0-1+debug",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "- Latest release.\n- Added core functionality & performance improvements.\n- Optimized for modern iOS jailbreaks.",
+                    "useSpacing": true
+                }
+            ]
+        }
+    ]
+}
